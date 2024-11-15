@@ -1,6 +1,7 @@
 ---
-title: "Presentation Template"
-subtitle: "Create beautiful interactive slide decks with Reveal.js"
+title: "Scaling STAC"
+subtitle: "Deploying and maintaining STAC infrastructure for large‐scale applications"
+date: "November 19, 2024"
 format:
   revealjs:
     center: false
@@ -17,10 +18,10 @@ format:
     controls-tutorial: true
 ---
 
-# First slide
+# STAC refresher
 
-- you can make pretty slides in a markdown document!
-- check out the [Quarto reveal.js guide](https://quarto.org/docs/presentations/revealjs/) for tips
+<iframe src="https://giphy.com/embed/hRsayJrDAx8WY" width="371" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/funny-food-hRsayJrDAx8WY">via GIPHY</a></p>
+
 
 # Pretty Code {auto-animate="true"}
 
