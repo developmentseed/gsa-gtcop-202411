@@ -1,23 +1,107 @@
 [
   {
+    "objectID": "index.html#development-seed",
+    "href": "index.html#development-seed",
+    "title": "Scaling STAC",
+    "section": "Development Seed",
+    "text": "Development Seed\n\n\n\ngeospatial engineering and product design consultancy\n20 years of operations with offices in Washington DC, and Lisbon, Portugal. With 54+ staff working across the globe."
+  },
+  {
+    "objectID": "index.html#spatiotemporal-asset-catalog",
+    "href": "index.html#spatiotemporal-asset-catalog",
+    "title": "Scaling STAC",
+    "section": "SpatioTemporal Asset Catalog",
+    "text": "SpatioTemporal Asset Catalog\n\n\n\nSTAC spec\nSTAC API spec\ncommunity-driven\n\n\n\n\n\n\nvia GIPHY\n\n\n\n\n\nSeptember 2024 GtCoP presentation"
+  },
+  {
+    "objectID": "index.html#vision",
+    "href": "index.html#vision",
+    "title": "Scaling STAC",
+    "section": "Vision",
+    "text": "Vision\n\nThe goal is for all providers of spatiotemporal assets (Imagery, SAR, Point Clouds, Data Cubes, Full Motion Video, etc) to expose their data as SpatioTemporal Asset Catalogs (STAC), so that new code doesn’t need to be written whenever a new data set or API is released."
+  },
+  {
     "objectID": "index.html#section",
     "href": "index.html#section",
     "title": "Scaling STAC",
     "section": "",
-    "text": "https://landsatlook.usgs.gov/explore"
+    "text": "Data providers don’t need to write new APIs\nData consumers don’t need to learn new APIs\nTool builders don’t need to build against new APIs"
   },
   {
-    "objectID": "index.html#section-1",
-    "href": "index.html#section-1",
+    "objectID": "index.html#stac-powered-applications",
+    "href": "index.html#stac-powered-applications",
     "title": "Scaling STAC",
-    "section": "",
-    "text": "https://planetarycomputer.microsoft.com/catalog"
+    "section": "STAC-powered applications",
+    "text": "STAC-powered applications\n\nSTAC Browser\ndynamic raster visualizations"
   },
   {
     "objectID": "index.html#section-2",
     "href": "index.html#section-2",
     "title": "Scaling STAC",
     "section": "",
-    "text": "developmentseed.org"
+    "text": "Maxar imagery from Maui wildfires in August 2023\n\nhttps://raster.eoapi.dev/collections/MAXAR_Maui_Hawaii_fires_Aug_23/map?assets=visual&assets_bidx=visual|1,2,3&minzoom=8&maxzoom=22"
+  },
+  {
+    "objectID": "index.html#how-is-it-going",
+    "href": "index.html#how-is-it-going",
+    "title": "Scaling STAC",
+    "section": "How is it going?",
+    "text": "How is it going?\n\n\n\nProviders: producing STAC metadata and hosting STAC APIs\nDevelopers: building awesome applications\nConsumers: pushing the limits of APIs and STAC spec\nCommunity: updating the STAC spec to meet needs of providers, consumers, and developers"
+  },
+  {
+    "objectID": "index.html#challenges",
+    "href": "index.html#challenges",
+    "title": "Scaling STAC",
+    "section": "Challenges",
+    "text": "Challenges\n\ndata volume!\nsearch speed for applications that consume data\ningestion pipelines"
+  },
+  {
+    "objectID": "index.html#section-3",
+    "href": "index.html#section-3",
+    "title": "Scaling STAC",
+    "section": "",
+    "text": "LandsatLook\n\nuser-facing USGS application for visualizaing mosaics of Landsat scenes\n\nMicrosoft Planetary Computer\n\nmassive Geospatial catalog and compute platform\n\nAmazon Sustainability Data Initiative\n\nmassive catalog of public data\nevent-driven STAC metadata generation pipelines"
+  },
+  {
+    "objectID": "index.html#section-4",
+    "href": "index.html#section-4",
+    "title": "Scaling STAC",
+    "section": "",
+    "text": "https://landsatlook.usgs.gov/explore"
+  },
+  {
+    "objectID": "index.html#mosaicjson",
+    "href": "index.html#mosaicjson",
+    "title": "Scaling STAC",
+    "section": "MosaicJSON",
+    "text": "MosaicJSON\n\n\n\npre-compute which STAC items are required for each XYZ tile\nmakes dynamic mosaic visualizations possible!\nnot very fast, though :(\n\n\n\n\n\n\nMosaicJSON files can be large which slows things down"
+  },
+  {
+    "objectID": "index.html#section-5",
+    "href": "index.html#section-5",
+    "title": "Scaling STAC",
+    "section": "",
+    "text": "STAC API with many public datasets\nContinuous flow of new data\nInteractive dynamic tiling application"
+  },
+  {
+    "objectID": "index.html#section-6",
+    "href": "index.html#section-6",
+    "title": "Scaling STAC",
+    "section": "",
+    "text": "https://planetarycomputer.microsoft.com/catalog\n\n\n\nShow how you can filter by date range, show different visualizations, etc."
+  },
+  {
+    "objectID": "index.html#microsoft-planetary-computer-2",
+    "href": "index.html#microsoft-planetary-computer-2",
+    "title": "Scaling STAC",
+    "section": "Microsoft Planetary Computer",
+    "text": "Microsoft Planetary Computer\n\n\nHow can we optimize for lightning fast queries?\n\n\nand pgstac was born"
+  },
+  {
+    "objectID": "index.html#stactools-pipelines",
+    "href": "index.html#stactools-pipelines",
+    "title": "Scaling STAC",
+    "section": "stactools-pipelines",
+    "text": "stactools-pipelines\n\n\ndevelopmentseed/stactools-pipelines\n\n\n\n\n\ndevelopmentseed.org"
   }
 ]
