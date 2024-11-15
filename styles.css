@@ -1,4 +1,7 @@
 /* css styles */
+.reveal .slide-logo {
+  z-index: -999 !important;
+}
 
 .reveal a {
   color: #cf3f02;

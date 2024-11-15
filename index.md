@@ -23,19 +23,6 @@ format:
 <iframe src="https://giphy.com/embed/hRsayJrDAx8WY" width="371" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/funny-food-hRsayJrDAx8WY">via GIPHY</a></p>
 
 
-# Pretty Code {auto-animate="true"}
-
-- Over 20 syntax highlighting themes available
-- Default theme optimized for accessibility
-
-## Python
-
-```python
-import rasterio
-
-```
-
-
 # LandsatLook
 
 - STAC-powered Landsat browser
@@ -44,6 +31,18 @@ import rasterio
 
 ::: footer
 <https://landsatlook.usgs.gov/explore>
+:::
+
+
+# Microsoft Planetary Computer
+
+- STAC API with many public datasets
+- Interactive dynamic tiling application
+
+## {background-interactive=true background-iframe="https://planetarycomputer.microsoft.com/catalog"}
+
+::: footer
+<https://planetarycomputer.microsoft.com/catalog>
 :::
 
 
