@@ -1,5 +1,5 @@
 ---
-title: "Scaling STAC"
+title: "STAC at Scale"
 subtitle: "Designing and maintaining STAC infrastructure for large‐scale applications"
 author: "Henry Rodman"
 date: "November 19, 2024"
