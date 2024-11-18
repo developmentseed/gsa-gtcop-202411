@@ -552,11 +552,7 @@ Henry Rodman
 <li>event-driven STAC metadata generation pipelines</li>
 </ul>
 <aside class="notes">
-<ul>
-<li>data volume!</li>
-<li>search speed for applications that consume data</li>
-<li>ingestion pipelines</li>
-</ul>
+<p>Challenges include: - ever-increasing data volume! - search speed for applications that consume data - ingestion pipelines</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -575,7 +571,7 @@ Henry Rodman
 <ul>
 <li>an early STAC-powered application</li>
 <li>interactive Landsat imagery browser</li>
-<li>MosaicJSON was born</li>
+<li>spurred the development of <a href="https://github.com/developmentseed/mosaicjson-spec">MosaicJSON</a></li>
 </ul>
 <aside class="notes">
 <ul>
@@ -612,7 +608,7 @@ Henry Rodman
 <li>based on search criteria and item spatial extents</li>
 </ul></li>
 <li>makes dynamic mosaic visualizations possible!</li>
-<li>not very fast</li>
+<li>reduces burden on STAC API, but costly to create</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><img data-src="https://user-images.githubusercontent.com/10407788/68706772-7539ac00-055e-11ea-8c15-5ee4f30b143e.jpg"></p>
@@ -643,6 +639,22 @@ Henry Rodman
 <li>Interactive visualization platform powered by STAC metadata</li>
 </ul>
 </div>
+<aside class="notes">
+<ul>
+<li>drove the development of <code>pgstac</code></li>
+<li>great example of a visually stunning STAC-backed application</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="explore-planetary-computer" class="slide level2 hide-title center" data-background-interactive="true" data-background-iframe="https://planetarycomputer.microsoft.com/catalog">
 <h2>Explore Planetary Computer</h2>
@@ -738,6 +750,10 @@ Henry Rodman
 <blockquote>
 <p>The stactools-packages github organization is a home for datasets and tool packages using the SpatioTemporal Asset Catalog (STAC) specification.</p>
 </blockquote>
+<ul>
+<li>user-generated STAC metadata building packages</li>
+<li><code>href</code> -&gt; STAC item</li>
+</ul>
 </section>
 <section id="browse-stacktools-packages" class="slide level2 hide-title center" data-background-interactive="true" data-background-iframe="https://stactools-packages.github.io/">
 <h2>Browse stacktools-packages</h2>
@@ -794,7 +810,7 @@ Henry Rodman
 <ul>
 <li>thanks to the STAC spec we only need a few libraries to interact with data from any collection!</li>
 </ul>
-<div id="b3ff7748" class="cell" data-execution_count="1">
+<div id="23aa7ec8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1|3|5|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> odc.stac</span>
 <span id="cb1-2"><a></a><span class="im">import</span> pyproj</span>
 <span id="cb1-3"><a></a><span class="im">import</span> pystac_client</span>
@@ -809,7 +825,7 @@ Henry Rodman
 <ul>
 <li>set up an AOI</li>
 </ul>
-<div id="ab009428" class="cell" data-execution_count="2">
+<div id="34f9f1e4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1|3-5|7-14|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>crs <span class="op">=</span> pyproj.CRS.from_string(<span class="st">"epsg:5070"</span>)</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a><span class="co"># bounding box that surrounds the North Shore of Lake Superior</span></span>
@@ -835,7 +851,7 @@ Henry Rodman
 <ul>
 <li>find DEM collections in a STAC API</li>
 </ul>
-<div id="684cb81a" class="cell" data-execution_count="3">
+<div id="61a70405" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
 <span id="cb4-2"><a></a>    <span class="st">"https://dev.asdi-catalog.org/"</span></span>
 <span id="cb4-3"><a></a>)</span>
@@ -861,7 +877,7 @@ Henry Rodman
 <ul>
 <li>query STAC items</li>
 </ul>
-<div id="6b7a6ec1" class="cell columns column-output-location" data-execution_count="4">
+<div id="4708444c" class="cell columns column-output-location" data-execution_count="4">
 <div class="column">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>stac_items <span class="op">=</span> client.search(</span>
 <span id="cb6-2"><a></a>    collections<span class="op">=</span><span class="st">"cop-dem-glo-30"</span>,</span>
@@ -3155,7 +3171,7 @@ Henry Rodman
 <li>load into an <code>xarray.Dataset</code> with <code>odc.stac.load</code></li>
 <li>don’t read any data yet, though (just metadata!)</li>
 </ul>
-<div id="9ef5b481" class="cell" data-execution_count="5">
+<div id="c3b8a831" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|3|5|6-7|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>dem_ds <span class="op">=</span> odc.stac.load(</span>
 <span id="cb7-2"><a></a>    stac_items,</span>
 <span id="cb7-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
@@ -3186,7 +3202,7 @@ Data variables:
 <li>access to the <code>xarray</code> API for visualization and analysis</li>
 <li>read data from cloud storage “just-in-time”</li>
 </ul>
-<div id="04529202" class="cell" data-execution_count="6">
+<div id="d55e605b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb9-2"><a></a>    dem_ds[<span class="st">"data"</span>].squeeze().plot.imshow()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -3203,7 +3219,7 @@ Data variables:
 <ul>
 <li>read another dataset from a different source</li>
 </ul>
-<div id="d5014774" class="cell" data-execution_count="7">
+<div id="b7f7ce3e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
 <span id="cb10-2"><a></a>    <span class="st">"https://services.terrascope.be/stac"</span></span>
 <span id="cb10-3"><a></a>)</span>
@@ -3222,7 +3238,7 @@ Data variables:
 </section>
 <section id="load-land-cover" class="slide level2 hide-title center">
 <h2>Load land cover</h2>
-<div id="3948fdbc" class="cell" data-execution_count="8">
+<div id="53fc02c0" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>landcover_ds <span class="op">=</span> odc.stac.load(</span>
 <span id="cb11-2"><a></a>    stac_items,</span>
 <span id="cb11-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
@@ -3254,7 +3270,7 @@ Data variables:
 <ul>
 <li>combine the two Datasets into a single <code>xarray.Dataset</code></li>
 </ul>
-<div id="20f96ff7" class="cell" data-execution_count="9">
+<div id="d13778d5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>merged <span class="op">=</span> xr.merge(</span>
 <span id="cb13-2"><a></a>  [</span>
 <span id="cb13-3"><a></a>      landcover_ds.squeeze().rename({<span class="st">"ESA_WORLDCOVER_10M_MAP"</span>: <span class="st">"land_cover"</span>}),</span>
@@ -3287,7 +3303,7 @@ Data variables:
 </ul>
 <div class="columns">
 <div class="column">
-<div id="e789816d" class="cell" data-execution_count="10">
+<div id="5a079d42" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb15-2"><a></a>    stats <span class="op">=</span> (</span>
 <span id="cb15-3"><a></a>        merged.elevation_m.groupby(</span>
@@ -3296,7 +3312,7 @@ Data variables:
 <span id="cb15-6"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
-<div id="323902a7" class="cell" data-execution_count="11">
+<div id="b4fc6dd2" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <style scoped="">

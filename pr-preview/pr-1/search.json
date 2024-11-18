@@ -46,7 +46,7 @@
     "href": "index.html#outline",
     "title": "Scaling STAC",
     "section": "Outline",
-    "text": "Outline\nLandsatLook\n\nuser-facing USGS application for visualizaing mosaics of Landsat scenes\n\nMicrosoft Planetary Computer\n\nmassive geospatial data catalog\ncompute platform right next to the data\n\nAmazon Sustainability Data Initiative\n\nmassive catalog of public data\nevent-driven STAC metadata generation pipelines\n\n\n\ndata volume!\nsearch speed for applications that consume data\ningestion pipelines"
+    "text": "Outline\nLandsatLook\n\nuser-facing USGS application for visualizaing mosaics of Landsat scenes\n\nMicrosoft Planetary Computer\n\nmassive geospatial data catalog\ncompute platform right next to the data\n\nAmazon Sustainability Data Initiative\n\nmassive catalog of public data\nevent-driven STAC metadata generation pipelines\n\n\nChallenges include: - ever-increasing data volume! - search speed for applications that consume data - ingestion pipelines"
   },
   {
     "objectID": "index.html#explore-landsatlook",
@@ -60,7 +60,7 @@
     "href": "index.html#mosaicjson",
     "title": "Scaling STAC",
     "section": "MosaicJSON",
-    "text": "MosaicJSON\n\n\n\npre-compute which STAC items are required for each XYZ tile\n\nbased on search criteria and item spatial extents\n\nmakes dynamic mosaic visualizations possible!\nnot very fast\n\n\n\n\n\n\nMosaicJSON files can take a while to generate for a large area"
+    "text": "MosaicJSON\n\n\n\npre-compute which STAC items are required for each XYZ tile\n\nbased on search criteria and item spatial extents\n\nmakes dynamic mosaic visualizations possible!\nreduces burden on STAC API, but costly to create\n\n\n\n\n\n\nMosaicJSON files can take a while to generate for a large area"
   },
   {
     "objectID": "index.html#explore-planetary-computer",
@@ -95,7 +95,7 @@
     "href": "index.html#stactools-packages",
     "title": "Scaling STAC",
     "section": "stactools-packages",
-    "text": "stactools-packages\n\nThe stactools-packages github organization is a home for datasets and tool packages using the SpatioTemporal Asset Catalog (STAC) specification."
+    "text": "stactools-packages\n\nThe stactools-packages github organization is a home for datasets and tool packages using the SpatioTemporal Asset Catalog (STAC) specification.\n\n\nuser-generated STAC metadata building packages\nhref -&gt; STAC item"
   },
   {
     "objectID": "index.html#browse-stacktools-packages",
