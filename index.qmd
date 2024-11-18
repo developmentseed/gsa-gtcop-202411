@@ -18,7 +18,6 @@ format:
     navigation-mode: vertical
     controls-layout: bottom-right
     controls-tutorial: true
-    # scrollable: true
     execute:
       echo: true
       eval: true
@@ -147,7 +146,8 @@ title-slide-attributes:
 - event-driven STAC metadata generation pipelines
 
 ::: {.notes}
-- data volume!
+Challenges include:
+- ever-increasing data volume!
 - search speed for applications that consume data
 - ingestion pipelines
 :::
@@ -156,7 +156,7 @@ title-slide-attributes:
 
 - an early STAC-powered application
 - interactive Landsat imagery browser
-- MosaicJSON was born
+- spurred the development of [MosaicJSON](https://github.com/developmentseed/mosaicjson-spec)
 
 ::: {.notes}
 - USGS has a STAC API for serving STAC metadata for Landsat missions
@@ -178,7 +178,7 @@ title-slide-attributes:
 - pre-compute which STAC items are required for each XYZ tile
   - based on search criteria and item spatial extents
 - makes dynamic mosaic visualizations possible!
-- not very fast
+- reduces burden on STAC API, but costly to create
 :::
 ::: {.column width="50%"}
 ![](https://user-images.githubusercontent.com/10407788/68706772-7539ac00-055e-11ea-8c15-5ee4f30b143e.jpg)
@@ -195,6 +195,11 @@ title-slide-attributes:
 - STAC API with many public datasets
 - Continuous flow of new data
 - Interactive visualization platform powered by STAC metadata
+:::
+
+::: {.notes}
+- drove the development of `pgstac`
+- great example of a visually stunning STAC-backed application
 :::
 
 ## Explore Planetary Computer {.hide-title background-interactive=true background-iframe="https://planetarycomputer.microsoft.com/catalog"}
@@ -266,6 +271,9 @@ title-slide-attributes:
 ## stactools-packages
 
 > The stactools-packages github organization is a home for datasets and tool packages using the SpatioTemporal Asset Catalog (STAC) specification.
+
+- user-generated STAC metadata building packages
+- `href` -> STAC item
 
 ## Browse stacktools-packages {.hide-title background-interactive=true background-iframe="https://stactools-packages.github.io/"}
 
