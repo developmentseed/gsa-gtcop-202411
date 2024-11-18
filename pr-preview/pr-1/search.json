@@ -119,11 +119,11 @@
     "text": "the STAC API advantage\n\ndon’t need to learn file path schema for a new dataset\ncan rely on tools like pystac_client for API operations and odc_stac for file i/o"
   },
   {
-    "objectID": "index.html#overview",
-    "href": "index.html#overview",
+    "objectID": "index.html#example-workflow",
+    "href": "index.html#example-workflow",
     "title": "Scaling STAC",
-    "section": "Overview",
-    "text": "Overview\n\nthanks to the STAC spec we only need a few libraries to interact with data from any collection!\n\n\nimport odc.stac\nimport pyproj\nimport pystac_client\nimport rasterio\nimport xarray as xr\nfrom shapely.geometry import box\nfrom shapely.ops import transform"
+    "section": "Example workflow",
+    "text": "Example workflow\n\nthanks to the STAC spec we only need a few libraries to interact with data from any collection!\n\n\nimport odc.stac\nimport pyproj\nimport pystac_client\nimport rasterio\nimport xarray as xr\nfrom shapely.geometry import box\nfrom shapely.ops import transform"
   },
   {
     "objectID": "index.html#define-aoi",
