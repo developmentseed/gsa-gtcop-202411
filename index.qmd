@@ -305,9 +305,7 @@ Challenges include:
 - don't need to learn file path schema for a new dataset
 - can rely on tools like [`pystac_client`](https://pystac-client.readthedocs.io/en/latest/) for API operations and [`odc_stac`](https://odc-stac.readthedocs.io/en/latest/) for file i/o
 
-# Example workflow
-
-## Overview
+## Example workflow
 
 - thanks to the STAC spec we only need a few libraries to interact with data from any collection!
 
