@@ -91,7 +91,11 @@ title-slide-attributes:
 :::
 ::::
 
-# STAC-powered applications
+# The STAC spec advantage
+
+::: {.notes}
+* a few applications that show how application developers can build to the STAC spec
+:::
 
 ## STAC Browser {.hide-title}
 
