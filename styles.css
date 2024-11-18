@@ -129,3 +129,8 @@
   overflow-y: auto;
   overflow-x: auto;
 }
+
+/* make it possible to hide a slide title */
+.hide-title h2 {
+  display: none;
+}
