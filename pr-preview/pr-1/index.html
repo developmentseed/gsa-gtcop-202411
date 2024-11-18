@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="styles.css">
@@ -324,6 +389,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -343,12 +411,7 @@ Henry Rodman
 
   <p class="date">2024-11-19</p>
 </section>
-<section>
-<section id="introduction" class="title-slide slide level1 center">
-<h1>Introduction</h1>
-
-</section>
-<section id="development-seed" class="slide level2">
+<section id="development-seed" class="slide level2 center">
 <h2>Development Seed</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -360,13 +423,13 @@ Henry Rodman
 <iframe src="https://developmentseed.org/" width="500" height="480" style="" frameborder="0" allowfullscreen="">
 </iframe>
 </div></div>
-</section></section>
+</section>
 <section>
 <section id="stac-refresher" class="title-slide slide level1 center">
 <h1>STAC refresher</h1>
 <img data-src="https://stacspec.org/public/images-original/STAC-01.png" class="r-stretch">
 </section>
-<section id="spatiotemporal-asset-catalog" class="slide level2">
+<section id="spatiotemporal-asset-catalog" class="slide level2 center">
 <h2>SpatioTemporal Asset Catalog</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -377,18 +440,17 @@ Henry Rodman
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="fragment">
-<iframe src="https://giphy.com/embed/hRsayJrDAx8WY" width="371" height="480" style="" frameborder="0" class="giphy-embed" allowfullscreen="">
+<div class="container" style="height: 80vh; padding: 20px;">
+<iframe src="https://giphy.com/embed/hRsayJrDAx8WY" style="width: 100%; height: 100%; border: none;" allowfullscreen="">
 </iframe>
-<p>
-<a href="https://giphy.com/gifs/funny-food-hRsayJrDAx8WY">via GIPHY</a>
-</p>
+</div>
 </div>
 </div></div>
-
-<aside><div>
+<div class="footer">
 <p><a href="https://github.com/GSA/gtcop-wiki/wiki/September-2024-STAC-presentations-by-development-community">September 2024 GtCoP presentation</a></p>
-</div></aside></section>
-<section id="vision" class="slide level2">
+</div>
+</section>
+<section id="vision" class="slide level2 center">
 <h2>Vision</h2>
 <blockquote>
 <p>The goal is for all providers of spatiotemporal assets (Imagery, SAR, Point Clouds, Data Cubes, Full Motion Video, etc) to expose their data as SpatioTemporal Asset Catalogs (STAC), so that new code doesn’t need to be written whenever a new data set or API is released.</p>
@@ -412,27 +474,7 @@ Henry Rodman
           display:block!important;
       }</style></aside>
 </section>
-<section id="stac-powered-applications" class="slide level2">
-<h2>STAC-powered applications</h2>
-<ul>
-<li>STAC Browser</li>
-<li>dynamic raster visualizations</li>
-</ul>
-</section>
-<section id="section" class="slide level2" data-background-interactive="true" data-background-iframe="https://radiantearth.github.io/stac-browser/#/?.language=en">
-<h2></h2>
-<div class="footer">
-
-</div>
-</section>
-<section id="section-1" class="slide level2" data-background-interactive="true" data-background-iframe="https://raster.eoapi.dev/searches/c13976bc1e5dc7f3c2b4a64239871fc0/map?assets=visual&amp;assets_bidx=visual|1,2,3&amp;minzoom=8&amp;maxzoom=22">
-<h2></h2>
-<p><strong>Maxar imagery from Maui wildfires in August 2023</strong></p>
-<div class="footer">
-<p><a href="https://raster.eoapi.dev/collections/MAXAR_Maui_Hawaii_fires_Aug_23/map?assets=visual&amp;assets_bidx=visual%7C1,2,3&amp;minzoom=8&amp;maxzoom=22" class="uri">https://raster.eoapi.dev/collections/MAXAR_Maui_Hawaii_fires_Aug_23/map?assets=visual&amp;assets_bidx=visual|1,2,3&amp;minzoom=8&amp;maxzoom=22</a></p>
-</div>
-</section>
-<section id="how-is-it-going" class="slide level2">
+<section id="how-is-it-going" class="slide level2 center">
 <h2>How is it going?</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
@@ -447,11 +489,52 @@ Henry Rodman
 </div></div>
 </section></section>
 <section>
+<section id="stac-powered-applications" class="title-slide slide level1 center">
+<h1>STAC-powered applications</h1>
+
+</section>
+<section id="stac-browser" class="slide level2 center">
+<h2>STAC Browser</h2>
+<div class="container" style="height: 80vh; padding: 20px;">
+<iframe src="https://radiantearth.github.io/stac-browser/#/?.language=en" style="width: 100%; height: 100%; border: none;" allowfullscreen="">
+</iframe>
+</div>
+<div class="footer">
+<p><a href="https://radiantearth.github.io/stac-browser/#/?.language=en" class="uri">https://radiantearth.github.io/stac-browser/#/?.language=en</a></p>
+</div>
+</section>
+<section id="maxar-imagery-from-maui-wildfires-in-august-2023" class="slide level2 center">
+<h2>Maxar imagery from Maui wildfires in August 2023</h2>
+<div class="container" style="height: 60vh; padding: 20px;">
+<iframe src="https://raster.eoapi.dev/searches/c13976bc1e5dc7f3c2b4a64239871fc0/map?assets=visual&amp;assets_bidx=visual|1,2,3&amp;minzoom=8&amp;maxzoom=22" style="width: 100%; height: 100%; border: none;" allowfullscreen="">
+</iframe>
+</div>
+<div class="footer">
+<p><a href="https://raster.eoapi.dev/collections/MAXAR_Maui_Hawaii_fires_Aug_23/map?assets=visual&amp;assets_bidx=visual%7C1,2,3&amp;minzoom=8&amp;maxzoom=22" class="uri">https://raster.eoapi.dev/collections/MAXAR_Maui_Hawaii_fires_Aug_23/map?assets=visual&amp;assets_bidx=visual|1,2,3&amp;minzoom=8&amp;maxzoom=22</a></p>
+</div>
+<aside class="notes">
+<ul>
+<li>render parameters stored as metadata</li>
+<li>visualize any collection with same API</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
 <section id="stac-at-scale-a-journey" class="title-slide slide level1 center">
 <h1>STAC at scale: a journey</h1>
 
 </section>
-<section id="challenges" class="slide level2">
+<section id="challenges" class="slide level2 center">
 <h2>Challenges</h2>
 <ul>
 <li>data volume!</li>
@@ -459,7 +542,7 @@ Henry Rodman
 <li>ingestion pipelines</li>
 </ul>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section" class="slide level2 center">
 <h2></h2>
 <h3 id="landsatlook">LandsatLook</h3>
 <ul>
@@ -503,13 +586,13 @@ Henry Rodman
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-3" class="slide level2" data-background-interactive="true" data-background-iframe="https://landsatlook.usgs.gov/explore?date=2024-10-17%7C2024-11-15&amp;sat=LANDSAT_9%7CLANDSAT_8">
+<section id="section-1" class="slide level2 center" data-background-interactive="true" data-background-iframe="https://landsatlook.usgs.gov/explore?date=2024-10-17%7C2024-11-15&amp;sat=LANDSAT_9%7CLANDSAT_8">
 <h2></h2>
 <div class="footer">
 <p><a href="https://landsatlook.usgs.gov/explore" class="uri">https://landsatlook.usgs.gov/explore</a></p>
 </div>
 </section>
-<section id="mosaicjson" class="slide level2">
+<section id="mosaicjson" class="slide level2 center">
 <h2>MosaicJSON</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -545,7 +628,7 @@ Henry Rodman
 <h1>Microsoft Planetary Computer</h1>
 
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-2" class="slide level2 center">
 <h2></h2>
 <ul>
 <li>STAC API with many public datasets</li>
@@ -553,7 +636,7 @@ Henry Rodman
 <li>Interactive visualization platform powered by STAC metadata</li>
 </ul>
 </section>
-<section id="section-5" class="slide level2" data-background-interactive="true" data-background-iframe="https://planetarycomputer.microsoft.com/catalog">
+<section id="section-3" class="slide level2 center" data-background-interactive="true" data-background-iframe="https://planetarycomputer.microsoft.com/catalog">
 <h2></h2>
 <div class="footer">
 <p><a href="https://planetarycomputer.microsoft.com/catalog" class="uri">https://planetarycomputer.microsoft.com/catalog</a></p>
@@ -574,7 +657,7 @@ Henry Rodman
           display:block!important;
       }</style></aside>
 </section>
-<section id="microsoft-planetary-computer-2" class="slide level2">
+<section id="microsoft-planetary-computer-2" class="slide level2 center">
 <h2>Microsoft Planetary Computer</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -585,7 +668,7 @@ Henry Rodman
 </div>
 </div></div>
 </section>
-<section id="pgstac" class="slide level2">
+<section id="pgstac" class="slide level2 center">
 <h2><code>pgstac</code></h2>
 <blockquote>
 <p>PostgreSQL schema and functions for Spatio-Temporal Asset Catalog (STAC)</p>
@@ -630,7 +713,7 @@ Henry Rodman
 <h1>Amazon Sustainability Data Initiative (ASDI)</h1>
 
 </section>
-<section id="asdi" class="slide level2">
+<section id="asdi" class="slide level2 center">
 <h2>ASDI</h2>
 <ul>
 <li>sustainability data situated next to a compute platform</li>
@@ -638,27 +721,28 @@ Henry Rodman
 <li>NODD: partnership with NOAA</li>
 </ul>
 </section>
-<section id="section-6" class="slide level2" data-background-interactive="true" data-background-iframe="https://radiantearth.github.io/stac-browser/#/external/dev.asdi-catalog.org/?.language=en">
+<section id="section-4" class="slide level2 center" data-background-interactive="true" data-background-iframe="https://radiantearth.github.io/stac-browser/#/external/dev.asdi-catalog.org/?.language=en">
 <h2></h2>
 <div class="footer">
 
 </div>
 </section>
-<section id="stactools-packages" class="slide level2">
+<section id="stactools-packages" class="slide level2 center">
 <h2>stactools-packages</h2>
 <blockquote>
 <p>The stactools-packages github organization is a home for datasets and tool packages using the SpatioTemporal Asset Catalog (STAC) specification.</p>
 </blockquote>
 </section>
-<section id="section-7" class="slide level2" data-background-interactive="true" data-background-iframe="https://stactools-packages.github.io/">
+<section id="section-5" class="slide level2 center" data-background-interactive="true" data-background-iframe="https://stactools-packages.github.io/">
 <h2></h2>
 <div class="footer">
 
 </div>
 </section>
-<section id="stactools-pipelines" class="slide level2">
+<section id="stactools-pipelines" class="slide level2 center">
 <h2>stactools-pipelines</h2>
 <img data-src="https://github.com/developmentseed/stactools-pipelines/blob/main/docs/aws_asdi_cog.png?raw=true" class="r-stretch">
+<p>TODO: link to blog post</p>
 <div class="footer">
 <p><a href="https://github.com/developmentseed/stactools-pipelines">developmentseed/stactools-pipelines</a></p>
 </div>
@@ -679,6 +763,3353 @@ Henry Rodman
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="data-conusumer-experience" class="title-slide slide level1 center">
+<h1>Data conusumer experience</h1>
+
+</section>
+<section id="cloud-native-geospatial" class="slide level2 center">
+<h2>Cloud-native geospatial</h2>
+<ul>
+<li>work entirely on the cloud (jupyter hub)</li>
+<li>work locally on files stored in the cloud</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>several flavors of cloud-native geospatial, each with specific advantages</li>
+<li>working locally is so convenient!</li>
+<li>working on compute in the cloud is faster once you have an environment set up</li>
+<li></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-stac-api-advantage" class="slide level2 center">
+<h2>the STAC API advantage</h2>
+<ul>
+<li>don’t need to learn file path schema for a new dataset</li>
+<li>can rely on tools like <a href="https://pystac-client.readthedocs.io/en/latest/"><code>pystac_client</code></a> for API operations and <a href="https://odc-stac.readthedocs.io/en/latest/"><code>odc_stac</code></a> for file i/o</li>
+</ul>
+</section></section>
+<section>
+<section id="example-workflow" class="title-slide slide level1 center">
+<h1>Example workflow</h1>
+
+</section>
+<section id="overview" class="slide level2 center">
+<h2>Overview</h2>
+<ul>
+<li>thanks to the STAC spec we only need a few libraries to interact with data from any collection!</li>
+</ul>
+<div id="d30aecf1" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1|3|4|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> odc.stac</span>
+<span id="cb1-2"><a></a><span class="im">import</span> pyproj</span>
+<span id="cb1-3"><a></a><span class="im">import</span> pystac_client</span>
+<span id="cb1-4"><a></a><span class="im">import</span> rasterio</span>
+<span id="cb1-5"><a></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
+<span id="cb1-6"><a></a><span class="im">from</span> shapely.geometry <span class="im">import</span> box</span>
+<span id="cb1-7"><a></a><span class="im">from</span> shapely.ops <span class="im">import</span> transform</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-6" class="slide level2 center">
+<h2></h2>
+<ul>
+<li>set up an AOI</li>
+</ul>
+<div id="973fb0af" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1|3-5|7-14|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>crs <span class="op">=</span> pyproj.CRS.from_string(<span class="st">"epsg:5070"</span>)</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a><span class="co"># bounding box that surrounds the North Shore of Lake Superior</span></span>
+<span id="cb2-4"><a></a>bbox <span class="op">=</span> (<span class="dv">373926</span>, <span class="dv">2744693</span>, <span class="dv">406338</span>, <span class="dv">2765304</span>)</span>
+<span id="cb2-5"><a></a>aoi <span class="op">=</span> box(<span class="op">*</span>bbox)</span>
+<span id="cb2-6"><a></a></span>
+<span id="cb2-7"><a></a><span class="co"># STAC items **always** store bounding box info in epsg:4326</span></span>
+<span id="cb2-8"><a></a>transformer_4326 <span class="op">=</span> pyproj.Transformer.from_crs(</span>
+<span id="cb2-9"><a></a>    crs_from<span class="op">=</span>crs,</span>
+<span id="cb2-10"><a></a>    crs_to<span class="op">=</span><span class="st">"epsg:4326"</span>,</span>
+<span id="cb2-11"><a></a>    always_xy<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb2-12"><a></a>)</span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a>bbox_4326 <span class="op">=</span> transform(transformer_4326.transform, aoi).bounds</span>
+<span id="cb2-15"><a></a><span class="bu">print</span>(bbox_4326)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(-91.05816506751593, 47.592675062538454, -90.61526491213358, 47.79503898873347)</code></pre>
+</div>
+</div>
+</section>
+<section id="section-7" class="slide level2 center">
+<h2></h2>
+<ul>
+<li>find DEM collections in a STAC API</li>
+</ul>
+<div id="5deba52d" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
+<span id="cb4-2"><a></a>    <span class="st">"https://dev.asdi-catalog.org/"</span></span>
+<span id="cb4-3"><a></a>)</span>
+<span id="cb4-4"><a></a></span>
+<span id="cb4-5"><a></a>collection_search <span class="op">=</span> client.collection_search(q<span class="op">=</span><span class="st">"DEM"</span>, bbox<span class="op">=</span>bbox_4326)</span>
+<span id="cb4-6"><a></a>search_results <span class="op">=</span> {</span>
+<span id="cb4-7"><a></a>    collection.<span class="bu">id</span>: collection</span>
+<span id="cb4-8"><a></a>    <span class="cf">for</span> collection <span class="kw">in</span> collection_search.collections()</span>
+<span id="cb4-9"><a></a>}</span>
+<span id="cb4-10"><a></a></span>
+<span id="cb4-11"><a></a><span class="cf">for</span> collection_id, collection <span class="kw">in</span> search_results.items():</span>
+<span id="cb4-12"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>collection_id<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>collection<span class="sc">.</span>description<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>cop-dem-glo-30: The Copernicus DEM is a Digital Surface Model (DSM) which represents the surface of the Earth including buildings, infrastructure and vegetation. We provide two instances of Copernicus DEM named GLO-30 Public and GLO-90. GLO-90 provides worldwide coverage at 90 meters. GLO-30 Public provides limited worldwide coverage at 30 meters because a small subset of tiles covering specific countries are not yet released to the public by the Copernicus Programme. Note that in both cases ocean areas do not have tiles, there one can assume height values equal to zero. Data is provided as Cloud Optimized GeoTIFFs and comes from Copernicus DEM 2021 release.
+</code></pre>
+</div>
+</div>
+</section>
+<section id="section-8" class="slide level2 smaller center">
+<h2></h2>
+<ul>
+<li>query STAC items</li>
+</ul>
+<div id="d166957a" class="cell columns column-output-location" data-class-output="scrollable-output" data-scrollable="true" data-execution_count="4">
+<div class="column">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>stac_items <span class="op">=</span> client.search(</span>
+<span id="cb6-2"><a></a>    collections<span class="op">=</span><span class="st">"cop-dem-glo-30"</span>,</span>
+<span id="cb6-3"><a></a>    bbox<span class="op">=</span>bbox_4326,</span>
+<span id="cb6-4"><a></a>).item_collection()</span>
+<span id="cb6-5"><a></a></span>
+<span id="cb6-6"><a></a>stac_items</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+
+<style>
+.pystac-summary {
+    cursor: pointer;
+    display: list-item;
+    list-style: revert;
+    margin-bottom: 0 !important;
+
+    .pystac-l {
+        padding-left: 0.5em;
+        color: rgb(64, 128, 128);
+        font-style: italic;
+    }
+}
+.pystac-row {
+    overflow-wrap: break-word;
+    padding-left: .825em;
+
+    .pystac-k {
+        display: inline-block;
+        margin: 0px 0.5em 0px 0px;
+    }
+    .pystac-v {
+        color: rgb(186, 33, 33);
+    }
+}
+.pystac-k {
+    color: rgb(0, 128, 0);
+    font-weight: 700;
+}
+</style>
+<div class="jp-RenderedJSON jp-mod-trusted jp-OutputArea-output">
+    <div class="container" style="line-height: normal;">
+        <ul style="padding: 0px; margin: 0px; list-style: none; display: block;">
+            
+                
+                    
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"FeatureCollection"</span>
+        </li>
+    
+                
+            
+                
+                    <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">features</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">0</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"Feature"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">stac_version</span>
+            <span class="pystac-v">"1.0.0"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">stac_extensions</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"https://stac-extensions.github.io/projection/v1.1.0/schema.json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">id</span>
+            <span class="pystac-v">"Copernicus_DSM_COG_10_N47_00_W092_00_DEM"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">geometry</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"Polygon"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">coordinates</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">0</span><span class="pystac-l">[] 5 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">0</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-91.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">47.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">1</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-91.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">48.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">2</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-92.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">48.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">3</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-92.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">47.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">4</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-91.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">47.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">bbox</span><span class="pystac-l">[] 4 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-92.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">47.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">2</span>
+            <span class="pystac-v">-91.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">3</span>
+            <span class="pystac-v">48.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">properties</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">gsd</span>
+            <span class="pystac-v">30.0</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">license</span>
+            <span class="pystac-v">"proprietary"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">datetime</span>
+            <span class="pystac-v">"2021-04-22T00:00:00Z"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">platform</span>
+            <span class="pystac-v">"TanDEM-X"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">proj:epsg</span>
+            <span class="pystac-v">4326</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">providers</span><span class="pystac-l">[] 3 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">0</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">url</span>
+            <span class="pystac-v">"https://spacedata.copernicus.eu/documents/20126/0/CSCDA_ESA_Mission-specific+Annex.pdf"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">name</span>
+            <span class="pystac-v">"European Space Agency"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">roles</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"licensor"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">1</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">url</span>
+            <span class="pystac-v">"https://registry.opendata.aws/copernicus-dem/"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">name</span>
+            <span class="pystac-v">"Sinergise"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">roles</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"producer"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">"processor"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">2</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">url</span>
+            <span class="pystac-v">"https://registry.opendata.aws/copernicus-dem/"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">name</span>
+            <span class="pystac-v">"Sinergise"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">roles</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"host"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">proj:shape</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">3600</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">3600</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">proj:transform</span><span class="pystac-l">[] 6 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">0.0002777777777777778</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">0.0</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">2</span>
+            <span class="pystac-v">-92.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">3</span>
+            <span class="pystac-v">0.0</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">4</span>
+            <span class="pystac-v">-0.0002777777777777778</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">5</span>
+            <span class="pystac-v">48.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">links</span><span class="pystac-l">[] 6 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">0</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"collection"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://dev.asdi-catalog.org/collections/cop-dem-glo-30"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">1</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"parent"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://dev.asdi-catalog.org/collections/cop-dem-glo-30"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">2</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"root"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://dev.asdi-catalog.org/"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/json"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">title</span>
+            <span class="pystac-v">"ASDI STAC API (dev)"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">3</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"self"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://dev.asdi-catalog.org/collections/cop-dem-glo-30/items/Copernicus_DSM_COG_10_N47_00_W092_00_DEM"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/geo+json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">4</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"handbook"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/Copernicus_metadata.pdf"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/pdf"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">title</span>
+            <span class="pystac-v">"Copernicus DEM User handbook"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">5</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"license"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://spacedata.copernicus.eu/documents/20126/0/CSCDA_ESA_Mission-specific+Annex.pdf"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"Copernicus Data Access"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">assets</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">data</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"s3://copernicus-dem-30m/Copernicus_DSM_COG_10_N47_00_W092_00_DEM/Copernicus_DSM_COG_10_N47_00_W092_00_DEM.tif"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"image/tiff; application=geotiff; profile=cloud-optimized"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">title</span>
+            <span class="pystac-v">"N47_00_W092_00"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">raster:bands</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">0</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">unit</span>
+            <span class="pystac-v">"meter"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">sampling</span>
+            <span class="pystac-v">"point"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">data_type</span>
+            <span class="pystac-v">"float32"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">spatial_resolution</span>
+            <span class="pystac-v">30</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">roles</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"data"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">collection</span>
+            <span class="pystac-v">"cop-dem-glo-30"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">1</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"Feature"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">stac_version</span>
+            <span class="pystac-v">"1.0.0"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">stac_extensions</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"https://stac-extensions.github.io/projection/v1.1.0/schema.json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">id</span>
+            <span class="pystac-v">"Copernicus_DSM_COG_10_N47_00_W091_00_DEM"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">geometry</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"Polygon"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">coordinates</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">0</span><span class="pystac-l">[] 5 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">0</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-90.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">47.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">1</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-90.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">48.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">2</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-91.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">48.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">3</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-91.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">47.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">4</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-90.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">47.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">bbox</span><span class="pystac-l">[] 4 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-91.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">47.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">2</span>
+            <span class="pystac-v">-90.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">3</span>
+            <span class="pystac-v">48.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">properties</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">gsd</span>
+            <span class="pystac-v">30.0</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">license</span>
+            <span class="pystac-v">"proprietary"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">datetime</span>
+            <span class="pystac-v">"2021-04-22T00:00:00Z"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">platform</span>
+            <span class="pystac-v">"TanDEM-X"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">proj:epsg</span>
+            <span class="pystac-v">4326</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">providers</span><span class="pystac-l">[] 3 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">0</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">url</span>
+            <span class="pystac-v">"https://spacedata.copernicus.eu/documents/20126/0/CSCDA_ESA_Mission-specific+Annex.pdf"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">name</span>
+            <span class="pystac-v">"European Space Agency"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">roles</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"licensor"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">1</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">url</span>
+            <span class="pystac-v">"https://registry.opendata.aws/copernicus-dem/"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">name</span>
+            <span class="pystac-v">"Sinergise"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">roles</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"producer"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">"processor"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">2</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">url</span>
+            <span class="pystac-v">"https://registry.opendata.aws/copernicus-dem/"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">name</span>
+            <span class="pystac-v">"Sinergise"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">roles</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"host"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">proj:shape</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">3600</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">3600</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">proj:transform</span><span class="pystac-l">[] 6 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">0.0002777777777777778</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">0.0</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">2</span>
+            <span class="pystac-v">-91.00013888888888</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">3</span>
+            <span class="pystac-v">0.0</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">4</span>
+            <span class="pystac-v">-0.0002777777777777778</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">5</span>
+            <span class="pystac-v">48.00013888888889</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">links</span><span class="pystac-l">[] 6 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">0</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"collection"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://dev.asdi-catalog.org/collections/cop-dem-glo-30"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">1</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"parent"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://dev.asdi-catalog.org/collections/cop-dem-glo-30"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">2</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"root"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://dev.asdi-catalog.org/"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/json"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">title</span>
+            <span class="pystac-v">"ASDI STAC API (dev)"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">3</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"self"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://dev.asdi-catalog.org/collections/cop-dem-glo-30/items/Copernicus_DSM_COG_10_N47_00_W091_00_DEM"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/geo+json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">4</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"handbook"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://object.cloud.sdsc.edu/v1/AUTH_opentopography/www/metadata/Copernicus_metadata.pdf"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/pdf"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">title</span>
+            <span class="pystac-v">"Copernicus DEM User handbook"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">5</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"license"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://spacedata.copernicus.eu/documents/20126/0/CSCDA_ESA_Mission-specific+Annex.pdf"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"Copernicus Data Access"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">assets</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">data</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"s3://copernicus-dem-30m/Copernicus_DSM_COG_10_N47_00_W091_00_DEM/Copernicus_DSM_COG_10_N47_00_W091_00_DEM.tif"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"image/tiff; application=geotiff; profile=cloud-optimized"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">title</span>
+            <span class="pystac-v">"N47_00_W091_00"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">raster:bands</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">0</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">unit</span>
+            <span class="pystac-v">"meter"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">sampling</span>
+            <span class="pystac-v">"point"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">data_type</span>
+            <span class="pystac-v">"float32"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">spatial_resolution</span>
+            <span class="pystac-v">30</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">roles</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"data"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">collection</span>
+            <span class="pystac-v">"cop-dem-glo-30"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+                
+            
+        </ul>
+    </div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="section-9" class="slide level2 center">
+<h2></h2>
+<ul>
+<li>load into an <code>xarray.Dataset</code> with <code>odc.stac.load</code></li>
+<li>don’t read any data yet, though (just metadata!)</li>
+</ul>
+<div id="2be9b866" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|3|5|6-7|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>dem_ds <span class="op">=</span> odc.stac.load(</span>
+<span id="cb7-2"><a></a>    stac_items,</span>
+<span id="cb7-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
+<span id="cb7-4"><a></a>    resolution<span class="op">=</span><span class="dv">30</span>,</span>
+<span id="cb7-5"><a></a>    chunks<span class="op">=</span>{},  <span class="co"># lazy eval</span></span>
+<span id="cb7-6"><a></a>    x<span class="op">=</span>(bbox[<span class="dv">0</span>], bbox[<span class="dv">2</span>]),  <span class="co"># limit to aoi</span></span>
+<span id="cb7-7"><a></a>    y<span class="op">=</span>(bbox[<span class="dv">1</span>], bbox[<span class="dv">3</span>]),</span>
+<span id="cb7-8"><a></a>)</span>
+<span id="cb7-9"><a></a><span class="bu">print</span>(dem_ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="5">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;xarray.Dataset&gt; Size: 3MB
+Dimensions:      (y: 688, x: 1081, time: 1)
+Coordinates:
+  * y            (y) float64 6kB 2.765e+06 2.765e+06 ... 2.745e+06 2.745e+06
+  * x            (x) float64 9kB 3.739e+05 3.74e+05 ... 4.063e+05 4.063e+05
+    spatial_ref  int32 4B 5070
+  * time         (time) datetime64[ns] 8B 2021-04-22
+Data variables:
+    data         (time, y, x) float32 3MB dask.array&lt;chunksize=(1, 688, 1081), meta=np.ndarray&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="section-10" class="slide level2 center">
+<h2></h2>
+<ul>
+<li>access to the <code>xarray</code> API for visualization and analysis</li>
+</ul>
+<div id="1eb5edee" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb9-2"><a></a>    dem_ds[<span class="st">"data"</span>].squeeze().plot.imshow()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-7-output-1.png" width="797" height="449"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-11" class="slide level2 center">
+<h2></h2>
+<ul>
+<li>read another dataset from a different source</li>
+</ul>
+<div id="04644332" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
+<span id="cb10-2"><a></a>    <span class="st">"https://services.terrascope.be/stac"</span></span>
+<span id="cb10-3"><a></a>)</span>
+<span id="cb10-4"><a></a></span>
+<span id="cb10-5"><a></a><span class="co"># sometimes necessary before running a collection search</span></span>
+<span id="cb10-6"><a></a>client.add_conforms_to(<span class="st">"COLLECTIONS"</span>)</span>
+<span id="cb10-7"><a></a>collection_search <span class="op">=</span> client.collection_search(</span>
+<span id="cb10-8"><a></a>    q<span class="op">=</span><span class="st">"WorldCover"</span>, bbox<span class="op">=</span>bbox_4326</span>
+<span id="cb10-9"><a></a>)</span>
+<span id="cb10-10"><a></a></span>
+<span id="cb10-11"><a></a>stac_items <span class="op">=</span> client.search(</span>
+<span id="cb10-12"><a></a>    collections<span class="op">=</span><span class="bu">next</span>(collection_search.collections()).<span class="bu">id</span>,</span>
+<span id="cb10-13"><a></a>    bbox<span class="op">=</span>bbox_4326,</span>
+<span id="cb10-14"><a></a>).item_collection()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-12" class="slide level2 smaller center">
+<h2></h2>
+<div id="65691609" class="cell" data-class-output="scrollable-output" data-scrollable="true" data-execution_count="8">
+<div class="cell-output cell-output-display">
+
+
+<style>
+.pystac-summary {
+    cursor: pointer;
+    display: list-item;
+    list-style: revert;
+    margin-bottom: 0 !important;
+
+    .pystac-l {
+        padding-left: 0.5em;
+        color: rgb(64, 128, 128);
+        font-style: italic;
+    }
+}
+.pystac-row {
+    overflow-wrap: break-word;
+    padding-left: .825em;
+
+    .pystac-k {
+        display: inline-block;
+        margin: 0px 0.5em 0px 0px;
+    }
+    .pystac-v {
+        color: rgb(186, 33, 33);
+    }
+}
+.pystac-k {
+    color: rgb(0, 128, 0);
+    font-weight: 700;
+}
+</style>
+<div class="jp-RenderedJSON jp-mod-trusted jp-OutputArea-output">
+    <div class="container" style="line-height: normal;">
+        <ul style="padding: 0px; margin: 0px; list-style: none; display: block;">
+            
+                
+                    
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"FeatureCollection"</span>
+        </li>
+    
+                
+            
+                
+                    <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">features</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">0</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"Feature"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">stac_version</span>
+            <span class="pystac-v">"1.0.0"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">stac_extensions</span><span class="pystac-l">[] 0 items</span></summary>
+        
+    </details></li>
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">id</span>
+            <span class="pystac-v">"urn:eop:VITO:ESA_WorldCover_10m_2020_AWS_V1:ESA_WorldCover_10m_2020_v100_N45W093"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">geometry</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"Polygon"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">coordinates</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">0</span><span class="pystac-l">[] 5 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">0</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-93</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">48</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">1</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-93</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">45</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">2</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-90</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">45</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">3</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-90</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">48</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">4</span><span class="pystac-l">[] 2 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-93</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">48</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">bbox</span><span class="pystac-l">[] 4 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">-93</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">1</span>
+            <span class="pystac-v">45</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">2</span>
+            <span class="pystac-v">-90</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">3</span>
+            <span class="pystac-v">48</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">properties</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">datetime</span>
+            <span class="pystac-v">"2020-12-31T23:59:59Z"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">title</span>
+            <span class="pystac-v">"ESA_WorldCover_10m_2020_v100_N45W093"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">created</span>
+            <span class="pystac-v">"2022-10-26T13:01:02Z"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">updated</span>
+            <span class="pystac-v">"2022-10-25T13:36:50Z"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">start_datetime</span>
+            <span class="pystac-v">"2020-01-01T00:00:00Z"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">end_datetime</span>
+            <span class="pystac-v">"2020-12-31T23:59:59Z"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">links</span><span class="pystac-l">[] 4 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">0</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"self"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://services.terrascope.be/stac/collections/urn:eop:VITO:ESA_WorldCover_10m_2020_AWS_V1/items/urn:eop:VITO:ESA_WorldCover_10m_2020_AWS_V1:ESA_WorldCover_10m_2020_v100_N45W093"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/geo+json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">1</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"parent"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://services.terrascope.be/stac/collections/urn:eop:VITO:ESA_WorldCover_10m_2020_AWS_V1"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">2</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"collection"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://services.terrascope.be/stac/collections/urn:eop:VITO:ESA_WorldCover_10m_2020_AWS_V1"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/json"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">3</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">rel</span>
+            <span class="pystac-v">"root"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"https://services.terrascope.be/stac"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"application/json"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">title</span>
+            <span class="pystac-v">"Terrascope - STAC API"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">assets</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li><details>
+            <summary class="pystac-summary"><span class="pystac-k">ESA_WORLDCOVER_10M_MAP</span></summary>
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">href</span>
+            <span class="pystac-v">"s3://esa-worldcover/v100/2020/map/ESA_WorldCover_10m_2020_v100_N45W093_Map.tif"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">type</span>
+            <span class="pystac-v">"image/tiff"</span>
+        </li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">title</span>
+            <span class="pystac-v">"ESA_WORLDCOVER_10M_MAP"</span>
+        </li>
+    
+            
+        
+            
+                <li><details>
+        <summary class="pystac-summary"><span class="pystac-k">roles</span><span class="pystac-l">[] 1 items</span></summary>
+        
+            <ul style="margin: 0px; padding: 0px 0px 0px 1.75em; list-style: none; display: block;">
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">0</span>
+            <span class="pystac-v">"data"</span>
+        </li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+            
+                
+        <li class="pystac-row">
+            <span class="pystac-k">collection</span>
+            <span class="pystac-v">"urn:eop:VITO:ESA_WorldCover_10m_2020_AWS_V1"</span>
+        </li>
+    
+            
+        
+    </ul>
+        </details></li>
+    
+            
+        
+    </ul>
+        
+    </details></li>
+                
+            
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-13" class="slide level2 center">
+<h2></h2>
+<div id="fe847715" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>landcover_ds <span class="op">=</span> odc.stac.load(</span>
+<span id="cb11-2"><a></a>    stac_items,</span>
+<span id="cb11-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
+<span id="cb11-4"><a></a>    resolution<span class="op">=</span><span class="dv">30</span>,</span>
+<span id="cb11-5"><a></a>    dtype<span class="op">=</span><span class="st">"uint8"</span>,</span>
+<span id="cb11-6"><a></a>    resampling<span class="op">=</span><span class="st">"nearest"</span>,</span>
+<span id="cb11-7"><a></a>    chunks<span class="op">=</span>{},  <span class="co"># lazy eval</span></span>
+<span id="cb11-8"><a></a>    x<span class="op">=</span>(bbox[<span class="dv">0</span>], bbox[<span class="dv">2</span>]),  <span class="co"># limit to aoi</span></span>
+<span id="cb11-9"><a></a>    y<span class="op">=</span>(bbox[<span class="dv">1</span>], bbox[<span class="dv">3</span>]),</span>
+<span id="cb11-10"><a></a>)</span>
+<span id="cb11-11"><a></a><span class="bu">print</span>(landcover_ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="9">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;xarray.Dataset&gt; Size: 758kB
+Dimensions:                 (y: 688, x: 1081, time: 1)
+Coordinates:
+  * y                       (y) float64 6kB 2.765e+06 2.765e+06 ... 2.745e+06
+  * x                       (x) float64 9kB 3.739e+05 3.74e+05 ... 4.063e+05
+    spatial_ref             int32 4B 5070
+  * time                    (time) datetime64[ns] 8B 2020-12-31T23:59:59
+Data variables:
+    ESA_WORLDCOVER_10M_MAP  (time, y, x) uint8 744kB dask.array&lt;chunksize=(1, 688, 1081), meta=np.ndarray&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="section-14" class="slide level2 center">
+<h2></h2>
+<ul>
+<li>combine the two Datasets into a single <code>xarray.Dataset</code></li>
+</ul>
+<div id="0f94b868" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>merged <span class="op">=</span> xr.merge(</span>
+<span id="cb13-2"><a></a>  [</span>
+<span id="cb13-3"><a></a>      landcover_ds.squeeze().rename({<span class="st">"ESA_WORLDCOVER_10M_MAP"</span>: <span class="st">"land_cover"</span>}),</span>
+<span id="cb13-4"><a></a>      dem_ds.squeeze().rename({<span class="st">"data"</span>: <span class="st">"elevation_m"</span>}),</span>
+<span id="cb13-5"><a></a>  ],</span>
+<span id="cb13-6"><a></a>  compat<span class="op">=</span><span class="st">"override"</span></span>
+<span id="cb13-7"><a></a>)</span>
+<span id="cb13-8"><a></a></span>
+<span id="cb13-9"><a></a><span class="bu">print</span>(merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="10">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;xarray.Dataset&gt; Size: 4MB
+Dimensions:      (y: 688, x: 1081)
+Coordinates:
+  * y            (y) float64 6kB 2.765e+06 2.765e+06 ... 2.745e+06 2.745e+06
+  * x            (x) float64 9kB 3.739e+05 3.74e+05 ... 4.063e+05 4.063e+05
+    spatial_ref  int32 4B 5070
+    time         datetime64[ns] 8B 2020-12-31T23:59:59
+Data variables:
+    land_cover   (y, x) uint8 744kB dask.array&lt;chunksize=(688, 1081), meta=np.ndarray&gt;
+    elevation_m  (y, x) float32 3MB dask.array&lt;chunksize=(688, 1081), meta=np.ndarray&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="section-15" class="slide level2 smaller center">
+<h2></h2>
+<ul>
+<li>calculate mean elevation by land cover class</li>
+</ul>
+<div class="columns">
+<div class="column">
+<div id="8780b772" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb15-2"><a></a>    stats <span class="op">=</span> (</span>
+<span id="cb15-3"><a></a>        merged.elevation_m.groupby(</span>
+<span id="cb15-4"><a></a>            merged.land_cover</span>
+<span id="cb15-5"><a></a>        ).mean().compute()</span>
+<span id="cb15-6"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+<div id="64ab9d4a" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">land_cover</th>
+<th data-quarto-table-cell-role="th">elevation_m</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10</td>
+<td>476</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>20</td>
+<td>513</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>30</td>
+<td>459</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>40</td>
+<td>353</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>50</td>
+<td>289</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>60</td>
+<td>403</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>80</td>
+<td>281</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>90</td>
+<td>487</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>100</td>
+<td>484</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></div>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo_no_text.png" class="slide-logo"></p>
@@ -769,7 +4200,7 @@ Henry Rodman
         disableLayout: false,
 
         // Vertical centering of slides
-        center: false,
+        center: true,
 
         // Enables touch navigation on devices with touch input
         touch: true,

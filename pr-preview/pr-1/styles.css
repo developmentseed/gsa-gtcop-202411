@@ -40,6 +40,11 @@
   max-width: 60% !important;
 }
 
+/* Inline code */
+.reveal code {
+  color: #cf3f02;
+}
+
 .reveal .slide-logo {
   z-index: -999 !important;
 }
@@ -117,4 +122,10 @@
   width: 60px !important;
   max-width: unset !important;
   max-height: unset !important;
+}
+
+.reveal .scrollable-output {
+  max-height: 60%; /* adjust this value as needed */
+  overflow-y: auto;
+  overflow-x: auto;
 }
