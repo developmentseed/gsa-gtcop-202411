@@ -5,7 +5,7 @@ author: "Henry Rodman"
 date: "November 19, 2024"
 format:
   revealjs:
-    center: false
+    center: true
     center-title-slide: true
     slide-number: true
     chalkboard: 
@@ -18,11 +18,15 @@ format:
     navigation-mode: vertical
     controls-layout: bottom-right
     controls-tutorial: true
+    # scrollable: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      cache: true
 title-slide-attributes:
     data-background-image: images/devseed_background.png
 ---
-
-# Introduction
 
 ## Development Seed
 
@@ -47,16 +51,18 @@ title-slide-attributes:
 - STAC spec
 - STAC API spec
 - community-driven
+
 :::
+
 
 ::: {.column width="40%"}
 ::: {.fragment}
-<iframe src="https://giphy.com/embed/hRsayJrDAx8WY" width="371" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/funny-food-hRsayJrDAx8WY">via GIPHY</a></p>
+<iframe src="https://giphy.com/embed/hRsayJrDAx8WY" width="370" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/funny-food-hRsayJrDAx8WY">via GIPHY</a></p>
 :::
 :::
 ::::
 
-::: aside
+::: footer
 [September 2024 GtCoP presentation](https://github.com/GSA/gtcop-wiki/wiki/September-2024-STAC-presentations-by-development-community)
 :::
 
@@ -72,24 +78,6 @@ title-slide-attributes:
 
 :::
 
-## STAC-powered applications
-
-- STAC Browser
-- dynamic raster visualizations
-
-## {background-interactive=true background-iframe="https://radiantearth.github.io/stac-browser/#/?.language=en"}
-
-::: footer
-:::
-
-## {background-interactive=true background-iframe="https://raster.eoapi.dev/searches/c13976bc1e5dc7f3c2b4a64239871fc0/map?assets=visual&assets_bidx=visual|1,2,3&minzoom=8&maxzoom=22"}
-
-**Maxar imagery from Maui wildfires in August 2023**
-
-::: footer
-<https://raster.eoapi.dev/collections/MAXAR_Maui_Hawaii_fires_Aug_23/map?assets=visual&assets_bidx=visual|1,2,3&minzoom=8&maxzoom=22>
-:::
-
 ## How is it going?
 
 :::: {.columns}
@@ -103,6 +91,40 @@ title-slide-attributes:
 ![](https://icon-library.com/images/cycle-icon/cycle-icon-29.jpg)
 :::
 ::::
+
+# STAC-powered applications
+
+## STAC Browser
+
+::: {.container style="height: 80vh; padding: 20px;"}
+<iframe 
+  src="https://radiantearth.github.io/stac-browser/#/?.language=en" 
+  style="width: 100%; height: 100%; border: none;" 
+  allowFullScreen>
+</iframe>
+:::
+::: footer
+<https://radiantearth.github.io/stac-browser/#/?.language=en>
+:::
+
+## Maxar imagery from Maui wildfires in August 2023
+
+::: {.container style="height: 60vh; padding: 20px;"}
+<iframe 
+  src="https://raster.eoapi.dev/searches/c13976bc1e5dc7f3c2b4a64239871fc0/map?assets=visual&assets_bidx=visual|1,2,3&minzoom=8&maxzoom=22" 
+  style="width: 100%; height: 100%; border: none;" 
+  allowFullScreen>
+</iframe>
+:::
+
+::: footer
+<https://raster.eoapi.dev/collections/MAXAR_Maui_Hawaii_fires_Aug_23/map?assets=visual&assets_bidx=visual|1,2,3&minzoom=8&maxzoom=22>
+:::
+
+::: {.notes}
+- render parameters stored as metadata
+- visualize any collection with same API
+:::
 
 # STAC at scale: a journey
 
@@ -248,6 +270,8 @@ title-slide-attributes:
 
 ![](https://github.com/developmentseed/stactools-pipelines/blob/main/docs/aws_asdi_cog.png?raw=true){.r-stretch}
 
+TODO: link to blog post
+
 ::: footer
 [developmentseed/stactools-pipelines](https://github.com/developmentseed/stactools-pipelines)
 :::
@@ -257,3 +281,206 @@ title-slide-attributes:
 - SNS notifications for new uploads to a bucket provide a mechanism for keeping the STAC records closely synced with new data
 - As soon as a new asset lands, a pipeline to generate STAC metadata is triggered
 :::
+
+# Data conusumer experience
+
+## Cloud-native geospatial
+- work entirely on the cloud (jupyter hub)
+- work locally on files stored in the cloud
+
+::: {.notes}
+- several flavors of cloud-native geospatial, each with specific advantages
+- working locally is so convenient!
+- working on compute in the cloud is faster once you have an environment set up
+- 
+:::
+
+## the STAC API advantage
+- don't need to learn file path schema for a new dataset
+- can rely on tools like [`pystac_client`](https://pystac-client.readthedocs.io/en/latest/) for API operations and [`odc_stac`](https://odc-stac.readthedocs.io/en/latest/) for file i/o
+
+# Example workflow
+
+## Overview
+
+- thanks to the STAC spec we only need a few libraries to interact with data from any collection!
+
+```{python}
+#| code-line-numbers: "|1|3|4|"
+import odc.stac
+import pyproj
+import pystac_client
+import rasterio
+import xarray as xr
+from shapely.geometry import box
+from shapely.ops import transform
+```
+
+##
+
+- set up an AOI
+
+```{python}
+#| code-line-numbers: "|1|3-5|7-14|"
+crs = pyproj.CRS.from_string("epsg:5070")
+
+# bounding box that surrounds the North Shore of Lake Superior
+bbox = (373926, 2744693, 406338, 2765304)
+aoi = box(*bbox)
+
+# STAC items **always** store bounding box info in epsg:4326
+transformer_4326 = pyproj.Transformer.from_crs(
+    crs_from=crs,
+    crs_to="epsg:4326",
+    always_xy=True,
+)
+
+bbox_4326 = transform(transformer_4326.transform, aoi).bounds
+print(bbox_4326)
+```
+
+##
+- find DEM collections in a STAC API
+
+```{python}
+#| output-location: fragment
+client = pystac_client.Client.open(
+    "https://dev.asdi-catalog.org/"
+)
+
+collection_search = client.collection_search(q="DEM", bbox=bbox_4326)
+search_results = {
+    collection.id: collection
+    for collection in collection_search.collections()
+}
+
+for collection_id, collection in search_results.items():
+    print(f"{collection_id}: {collection.description}\n")
+```
+
+## {.smaller}
+
+- query STAC items
+
+```{python}
+#| output-location: column
+#| class-output: scrollable-output
+#| scrollable: true
+stac_items = client.search(
+    collections="cop-dem-glo-30",
+    bbox=bbox_4326,
+).item_collection()
+
+stac_items
+```
+
+##
+- load into an `xarray.Dataset` with `odc.stac.load`
+- don't read any data yet, though (just metadata!)
+
+```{python}
+#| code-line-numbers: "|3|5|6-7|"
+#| output-location: fragment
+dem_ds = odc.stac.load(
+    stac_items,
+    crs=crs,  # assets get reprojected to match crs
+    resolution=30,
+    chunks={},  # lazy eval
+    x=(bbox[0], bbox[2]),  # limit to aoi
+    y=(bbox[1], bbox[3]),
+)
+print(dem_ds)
+```
+
+##
+
+- access to the `xarray` API for visualization and analysis
+```{python}
+with rasterio.Env(aws_no_sign_request=True):
+    dem_ds["data"].squeeze().plot.imshow()
+```
+
+## 
+- read another dataset from a different source
+```{python}
+client = pystac_client.Client.open(
+    "https://services.terrascope.be/stac"
+)
+
+# sometimes necessary before running a collection search
+client.add_conforms_to("COLLECTIONS")
+collection_search = client.collection_search(
+    q="WorldCover", bbox=bbox_4326
+)
+
+stac_items = client.search(
+    collections=next(collection_search.collections()).id,
+    bbox=bbox_4326,
+).item_collection()
+```
+
+## {.smaller}
+```{python}
+#| class-output: scrollable-output
+#| scrollable: true
+#| echo: false
+display(stac_items)
+```
+
+##
+
+```{python}
+#| output-location: fragment
+landcover_ds = odc.stac.load(
+    stac_items,
+    crs=crs,  # assets get reprojected to match crs
+    resolution=30,
+    dtype="uint8",
+    resampling="nearest",
+    chunks={},  # lazy eval
+    x=(bbox[0], bbox[2]),  # limit to aoi
+    y=(bbox[1], bbox[3]),
+)
+print(landcover_ds)
+```
+
+##
+
+- combine the two Datasets into a single `xarray.Dataset`
+```{python}
+#| output-location: fragment
+merged = xr.merge(
+  [
+      landcover_ds.squeeze().rename({"ESA_WORLDCOVER_10M_MAP": "land_cover"}),
+      dem_ds.squeeze().rename({"data": "elevation_m"}),
+  ],
+  compat="override"
+)
+
+print(merged)
+```
+
+## {.smaller}
+
+- calculate mean elevation by land cover class
+
+:::: columns
+::: column
+```{python}
+with rasterio.Env(aws_no_sign_request=True):
+    stats = (
+        merged.elevation_m.groupby(
+            merged.land_cover
+        ).mean().compute()
+    )
+
+```
+:::
+
+::: column
+```{python}
+#| echo: false
+display(stats.drop_vars(["spatial_ref", "time"]).to_dataframe().reset_index().astype("int"))
+```
+:::
+::::
