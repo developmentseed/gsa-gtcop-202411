@@ -10,7 +10,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <meta name="author" content="Henry Rodman - Development Seed">
+  <meta name="author" content="Henry Rodman">
   <meta name="dcterms.date" content="2024-11-19">
   <title>STAC at Scale</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -404,7 +404,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Henry Rodman - Development Seed 
+Henry Rodman 
 </div>
 </div>
 </div>
@@ -466,6 +466,21 @@ Henry Rodman - Development Seed
 </div>
 </div></div>
 
+<aside class="notes">
+<ul>
+<li>everything comes back to the specs that have been defined to serve the needs of users</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><div>
 <p><a href="https://github.com/GSA/gtcop-wiki/wiki/September-2024-STAC-presentations-by-development-community">September 2024 GtCoP presentation</a></p>
 </div></aside></section>
@@ -480,7 +495,9 @@ Henry Rodman - Development Seed
 <li>Tool builders don’t need to build against new APIs</li>
 </ul>
 <aside class="notes">
-
+<ul>
+<li>reduce overhead for everyone</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -511,6 +528,7 @@ Henry Rodman - Development Seed
 <aside class="notes">
 <ul>
 <li>win-win-win</li>
+<li>building large-scale applications with STAC can push the entire ecosystem forward</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -529,26 +547,31 @@ Henry Rodman - Development Seed
 <h1>The STAC advantage: producers</h1>
 
 </section>
-<section id="benefits-for-data-providers" class="slide level2 center">
-<h2>Benefits for Data Providers</h2>
+<section id="benefits-for-data-producers" class="slide level2 center">
+<h2>Benefits for data producers</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
 <li><strong>Standardized metadata</strong>
 <ul>
 <li>no need to invent custom schemas</li>
-<li>leverage existing validation tools</li>
-<li>extensions for specialized needs</li>
+<li>use existing validation tools</li>
+<li>re-use or create extensions for specialized needs</li>
 </ul></li>
 <li><strong>Flexible implementation</strong>
 <ul>
 <li>multiple database backends</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="./images/canyonlands.png" class="quarto-figure quarto-figure-right"></p>
+</figure>
+</div>
 </div></div>
 <aside class="notes">
 <ul>
-<li>Many providers start with static STAC and graduate to API when needed</li>
 <li>Extensions allow customization while maintaining interoperability</li>
 <li>Validation tools ensure compliance and quality</li>
 </ul>
@@ -569,20 +592,20 @@ Henry Rodman - Development Seed
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li><strong>Community-backed tools</strong>
+<li><strong>community-backed tools</strong>
 <ul>
-<li>Metadata generation (<a href="https://github.com/stac-utils/stactools">stactools</a>)</li>
+<li>metadata generation (<a href="https://github.com/stac-utils/stactools">stactools</a>)</li>
 <li>API implementations (<a href="https://github.com/stac-utils/stac-fastapi">stac-fastapi</a>)</li>
-<li>Validation (<a href="https://github.com/stac-utils/stac-validator">stac-validator</a>)</li>
+<li>validation (<a href="https://github.com/stac-utils/stac-validator">stac-validator</a>)</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
-<li><strong>Community benefits</strong>
+<li><strong>community benefits</strong>
 <ul>
-<li>Shared development costs</li>
-<li>Battle-tested implementations</li>
-<li>Active ecosystem growth</li>
+<li>shared development costs</li>
+<li>battle-tested implementations</li>
+<li>active ecosystem growth</li>
 </ul></li>
 </ul>
 </div></div>
@@ -610,9 +633,20 @@ Henry Rodman - Development Seed
 <section>
 <section id="the-stac-advantage-developers" class="title-slide slide level1 center">
 <h1>The STAC advantage: developers</h1>
+
+</section>
+<section id="benefits-for-developers" class="slide level2 center">
+<h2>Benefits for developers</h2>
+<ul>
+<li>collaboration among many organizations</li>
+<li>iteratively improve existing tools rather than building from scratch every time</li>
+<li>dig into details of the spec to support as many use-cases as possible</li>
+<li>re-use tested components!</li>
+</ul>
 <aside class="notes">
 <ul>
-<li>a few applications that show how application developers can build to the STAC spec</li>
+<li>collaboration is key</li>
+<li>let’s look at few applications that show how application developers can build to the STAC spec</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -626,8 +660,62 @@ Henry Rodman - Development Seed
           display:block!important;
       }</style></aside>
 </section>
-<section id="stac-browser" class="slide level2 hide-title center">
+<section id="stac-browser" class="slide level2 smaller center">
 <h2>STAC Browser</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {json} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>{</span>
+<span id="cb1-2"><a></a>  "collections": [</span>
+<span id="cb1-3"><a></a>    {</span>
+<span id="cb1-4"><a></a>      "id": "sentinel1-grd",</span>
+<span id="cb1-5"><a></a>      "type": "Collection",</span>
+<span id="cb1-6"><a></a>      "links": [</span>
+<span id="cb1-7"><a></a>        {</span>
+<span id="cb1-8"><a></a>          "rel": "items",</span>
+<span id="cb1-9"><a></a>          "type": "application/geo+json",</span>
+<span id="cb1-10"><a></a>          "href": "https://dev.asdi-catalog.org/collections/sentinel1-grd/items"</span>
+<span id="cb1-11"><a></a>        },</span>
+<span id="cb1-12"><a></a>        {</span>
+<span id="cb1-13"><a></a>          "rel": "parent",</span>
+<span id="cb1-14"><a></a>          "type": "application/json",</span>
+<span id="cb1-15"><a></a>          "href": "https://dev.asdi-catalog.org/"</span>
+<span id="cb1-16"><a></a>        }</span>
+<span id="cb1-17"><a></a>      ],</span>
+<span id="cb1-18"><a></a>      "title": "Sentinel-1 GRD",</span>
+<span id="cb1-19"><a></a>      "extent": {</span>
+<span id="cb1-20"><a></a>        "spatial": {</span>
+<span id="cb1-21"><a></a>          "bbox": [</span>
+<span id="cb1-22"><a></a>            [-180, -90, 180, 90]</span>
+<span id="cb1-23"><a></a>          ]</span>
+<span id="cb1-24"><a></a>        },</span>
+<span id="cb1-25"><a></a>        "temporal": {</span>
+<span id="cb1-26"><a></a>          "interval": [</span>
+<span id="cb1-27"><a></a>            [</span>
+<span id="cb1-28"><a></a>              "2014-10-10T00:00:00Z",</span>
+<span id="cb1-29"><a></a>              null</span>
+<span id="cb1-30"><a></a>            ]</span>
+<span id="cb1-31"><a></a>          ]</span>
+<span id="cb1-32"><a></a>        }</span>
+<span id="cb1-33"><a></a>      }</span>
+<span id="cb1-34"><a></a>    }</span>
+<span id="cb1-35"><a></a>  ]</span>
+<span id="cb1-36"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<ul>
+<li>transform JSON into a beautiful interface</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="explore-stac-browser" class="slide level2 hide-title center">
+<h2>Explore STAC Browser</h2>
 <div class="r-stretch">
 <iframe src="https://radiantearth.github.io/stac-browser/#/?.language=en" width="100%" height="100%" style="border: none;" allowfullscreen="">
 </iframe>
@@ -676,11 +764,11 @@ Henry Rodman - Development Seed
 <h3 id="microsoft-planetary-computer">Microsoft Planetary Computer</h3>
 <ul>
 <li>massive geospatial data catalog</li>
-<li>compute platform right next to the data</li>
+<li>dynamic visualization capabilities</li>
 </ul>
 <h3 id="amazon-sustainability-data-initiative">Amazon Sustainability Data Initiative</h3>
 <ul>
-<li>massive catalog of public data</li>
+<li>public science data</li>
 <li>event-driven STAC metadata generation pipelines</li>
 </ul>
 <aside class="notes">
@@ -768,9 +856,10 @@ Henry Rodman - Development Seed
 <h1>Microsoft Planetary Computer</h1>
 <div class="fragment">
 <ul>
+<li>built on open standards</li>
 <li>STAC API with many public datasets</li>
-<li>Continuous flow of new data</li>
-<li>Interactive visualization platform powered by STAC metadata</li>
+<li>continuous flow of new data</li>
+<li>interactive visualization platform powered by STAC metadata</li>
 </ul>
 </div>
 <aside class="notes">
@@ -855,8 +944,8 @@ Henry Rodman - Development Seed
 </div><div class="column" style="width:50%;">
 <p><strong>weaknesses</strong></p>
 <ul>
-<li>need to host a Postgres database to use it</li>
-<li>aggregation statistics can be slow to calculate</li>
+<li>requires some tinkering to achieve optimal performance</li>
+<li>aggregation statistics can be somewhat slow</li>
 </ul>
 </div></div>
 <aside class="notes">
@@ -865,6 +954,48 @@ Henry Rodman - Development Seed
 <li>goal was to put as much of the STAC ops in the database so many clients could talk to it without re-writing the core</li>
 <li>putting things in the postgres db gives you a lot for free</li>
 <li>hashed searches: many queries (e.g.&nbsp;for dynamic tiling) are going to yield the same set of items. pgstac has a mechanism for caching search results to enable faster retrieval of matching items</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="titiler-pgstac" class="slide level2 center">
+<h2><code>titiler-pgstac</code></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>dynamic mosaic visualizations from STAC collections</li>
+<li>connects directly to <code>pgstac</code> database
+<ul>
+<li>(no API requests for STAC queries)</li>
+</ul></li>
+<li>hashed searches!</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="https://private-user-images.githubusercontent.com/10407788/254405576-24a64ea9-fede-4ee8-ab8d-625c9e94db44.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzIwMjkyODcsIm5iZiI6MTczMjAyODk4NywicGF0aCI6Ii8xMDQwNzc4OC8yNTQ0MDU1NzYtMjRhNjRlYTktZmVkZS00ZWU4LWFiOGQtNjI1YzllOTRkYjQ0LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE5VDE1MDk0N1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTZkNmMxNzNjZDlmNDk4MzVhMTBlMWYyMmEzY2UyMzU5MTg5MTRjMjAxNTc4Njg3ZTEzMDBlMTdhOGE2NmNiMWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.z6q9qbktHJoBN1KNoBaTuSEDamcD6f8nsXJ996ltjH8" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
+
+<aside><div>
+<p><a href="https://github.com/stac-utils/titiler-pgstac">stac-utils/titiler-pgstac</a></p>
+</div></aside></section>
+<section id="integrated-mosaic-tiling" class="slide level2 center">
+<h2>Integrated mosaic tiling</h2>
+
+<img data-src="./images/mosaic_tiling.png" class="r-stretch"><aside class="notes">
+<ul>
+<li>fastest way to assemble a tile from an arbitrary STAC query</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -937,7 +1068,42 @@ Henry Rodman - Development Seed
       }</style></aside>
 <aside><div>
 <p><a href="https://developmentseed.org/blog/2023-10-20-asdi/" class="uri">https://developmentseed.org/blog/2023-10-20-asdi/</a></p>
-</div></aside></section></section>
+</div></aside></section>
+<section id="eoapi" class="slide level2 center">
+<h2><code>eoAPI</code></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<blockquote>
+<p>State-of-the-art services to enable data discovery, search, visualization, and access.</p>
+</blockquote>
+<ul>
+<li>readily deployable
+<ul>
+<li>AWS CDK: <a href="https://github.com/developmentseed/eoapi-cdk"><code>eoapi-cdk</code></a></li>
+<li>kubernetes: <a href="https://github.com/developmentseed/eoapi-k8s"><code>eoapi-k8s</code></a></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="https://github.com/developmentseed/eoAPI/blob/main/docs/logos/eoAPI.png?raw=true" class="quarto-figure quarto-figure-right" style="width:100.0%"> <a href="https://eoapi.dev/">developmentseed/eoapi</a></p>
+</div></div>
+<aside class="notes">
+<ul>
+<li>consistent API structure for all services (FastAPI)</li>
+<li>product of development on all of the projects I have discussed today</li>
+<li>any combination of components can be deployed</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section>
 <section id="the-stac-advantage-consumers" class="title-slide slide level1 center">
 <h1>The STAC advantage: consumers</h1>
@@ -951,14 +1117,14 @@ Henry Rodman - Development Seed
 <ul>
 <li>thanks to the STAC spec we only need a few libraries to interact with data from any collection!</li>
 </ul>
-<div id="58eb5d2c" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1|3|5|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> odc.stac</span>
-<span id="cb1-2"><a></a><span class="im">import</span> pyproj</span>
-<span id="cb1-3"><a></a><span class="im">import</span> pystac_client</span>
-<span id="cb1-4"><a></a><span class="im">import</span> rasterio</span>
-<span id="cb1-5"><a></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
-<span id="cb1-6"><a></a><span class="im">from</span> shapely.geometry <span class="im">import</span> box</span>
-<span id="cb1-7"><a></a><span class="im">from</span> shapely.ops <span class="im">import</span> transform</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="290d6488" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1|3|5|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> odc.stac</span>
+<span id="cb2-2"><a></a><span class="im">import</span> pyproj</span>
+<span id="cb2-3"><a></a><span class="im">import</span> pystac_client</span>
+<span id="cb2-4"><a></a><span class="im">import</span> rasterio</span>
+<span id="cb2-5"><a></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
+<span id="cb2-6"><a></a><span class="im">from</span> shapely.geometry <span class="im">import</span> box</span>
+<span id="cb2-7"><a></a><span class="im">from</span> shapely.ops <span class="im">import</span> transform</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="define-aoi" class="slide level2 hide-title center">
@@ -966,22 +1132,22 @@ Henry Rodman - Development Seed
 <ul>
 <li>set up an AOI</li>
 </ul>
-<div id="86da4c26" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1|3-5|7-14|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>crs <span class="op">=</span> pyproj.CRS.from_string(<span class="st">"epsg:5070"</span>)</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="co"># bounding box that surrounds the North Shore of Lake Superior</span></span>
-<span id="cb2-4"><a></a>bbox <span class="op">=</span> (<span class="dv">373926</span>, <span class="dv">2744693</span>, <span class="dv">406338</span>, <span class="dv">2765304</span>)</span>
-<span id="cb2-5"><a></a>aoi <span class="op">=</span> box(<span class="op">*</span>bbox)</span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="co"># STAC items **always** store bounding box info in epsg:4326</span></span>
-<span id="cb2-8"><a></a>transformer_4326 <span class="op">=</span> pyproj.Transformer.from_crs(</span>
-<span id="cb2-9"><a></a>    crs_from<span class="op">=</span>crs,</span>
-<span id="cb2-10"><a></a>    crs_to<span class="op">=</span><span class="st">"epsg:4326"</span>,</span>
-<span id="cb2-11"><a></a>    always_xy<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb2-12"><a></a>)</span>
-<span id="cb2-13"><a></a></span>
-<span id="cb2-14"><a></a>bbox_4326 <span class="op">=</span> transform(transformer_4326.transform, aoi).bounds</span>
-<span id="cb2-15"><a></a><span class="bu">print</span>(bbox_4326)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b826531d" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|1|3-5|7-14|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>crs <span class="op">=</span> pyproj.CRS.from_string(<span class="st">"epsg:5070"</span>)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="co"># bounding box that surrounds the North Shore of Lake Superior</span></span>
+<span id="cb3-4"><a></a>bbox <span class="op">=</span> (<span class="dv">373926</span>, <span class="dv">2744693</span>, <span class="dv">406338</span>, <span class="dv">2765304</span>)</span>
+<span id="cb3-5"><a></a>aoi <span class="op">=</span> box(<span class="op">*</span>bbox)</span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a><span class="co"># STAC items **always** store bounding box info in epsg:4326</span></span>
+<span id="cb3-8"><a></a>transformer_4326 <span class="op">=</span> pyproj.Transformer.from_crs(</span>
+<span id="cb3-9"><a></a>    crs_from<span class="op">=</span>crs,</span>
+<span id="cb3-10"><a></a>    crs_to<span class="op">=</span><span class="st">"epsg:4326"</span>,</span>
+<span id="cb3-11"><a></a>    always_xy<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-12"><a></a>)</span>
+<span id="cb3-13"><a></a></span>
+<span id="cb3-14"><a></a>bbox_4326 <span class="op">=</span> transform(transformer_4326.transform, aoi).bounds</span>
+<span id="cb3-15"><a></a><span class="bu">print</span>(bbox_4326)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(-91.05816506751593, 47.592675062538454, -90.61526491213358, 47.79503898873347)</code></pre>
 </div>
@@ -992,19 +1158,19 @@ Henry Rodman - Development Seed
 <ul>
 <li>find DEM collections in a STAC API</li>
 </ul>
-<div id="65ba1814" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
-<span id="cb4-2"><a></a>    <span class="st">"https://dev.asdi-catalog.org/"</span></span>
-<span id="cb4-3"><a></a>)</span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a>collection_search <span class="op">=</span> client.collection_search(q<span class="op">=</span><span class="st">"DEM"</span>, bbox<span class="op">=</span>bbox_4326)</span>
-<span id="cb4-6"><a></a>search_results <span class="op">=</span> {</span>
-<span id="cb4-7"><a></a>    collection.<span class="bu">id</span>: collection</span>
-<span id="cb4-8"><a></a>    <span class="cf">for</span> collection <span class="kw">in</span> collection_search.collections()</span>
-<span id="cb4-9"><a></a>}</span>
-<span id="cb4-10"><a></a></span>
-<span id="cb4-11"><a></a><span class="cf">for</span> collection_id, collection <span class="kw">in</span> search_results.items():</span>
-<span id="cb4-12"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>collection_id<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>collection<span class="sc">.</span>description<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="eee9bbe4" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
+<span id="cb5-2"><a></a>    <span class="st">"https://dev.asdi-catalog.org/"</span></span>
+<span id="cb5-3"><a></a>)</span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a>collection_search <span class="op">=</span> client.collection_search(q<span class="op">=</span><span class="st">"DEM"</span>, bbox<span class="op">=</span>bbox_4326)</span>
+<span id="cb5-6"><a></a>search_results <span class="op">=</span> {</span>
+<span id="cb5-7"><a></a>    collection.<span class="bu">id</span>: collection</span>
+<span id="cb5-8"><a></a>    <span class="cf">for</span> collection <span class="kw">in</span> collection_search.collections()</span>
+<span id="cb5-9"><a></a>}</span>
+<span id="cb5-10"><a></a></span>
+<span id="cb5-11"><a></a><span class="cf">for</span> collection_id, collection <span class="kw">in</span> search_results.items():</span>
+<span id="cb5-12"><a></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>collection_id<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>collection<span class="sc">.</span>description<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
@@ -1018,14 +1184,14 @@ Henry Rodman - Development Seed
 <ul>
 <li>query STAC items</li>
 </ul>
-<div id="83098a42" class="cell columns column-output-location" data-execution_count="4">
+<div id="64238d41" class="cell columns column-output-location" data-execution_count="4">
 <div class="column">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>stac_items <span class="op">=</span> client.search(</span>
-<span id="cb6-2"><a></a>    collections<span class="op">=</span><span class="st">"cop-dem-glo-30"</span>,</span>
-<span id="cb6-3"><a></a>    bbox<span class="op">=</span>bbox_4326,</span>
-<span id="cb6-4"><a></a>).item_collection()</span>
-<span id="cb6-5"><a></a></span>
-<span id="cb6-6"><a></a>stac_items</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>stac_items <span class="op">=</span> client.search(</span>
+<span id="cb7-2"><a></a>    collections<span class="op">=</span><span class="st">"cop-dem-glo-30"</span>,</span>
+<span id="cb7-3"><a></a>    bbox<span class="op">=</span>bbox_4326,</span>
+<span id="cb7-4"><a></a>).item_collection()</span>
+<span id="cb7-5"><a></a></span>
+<span id="cb7-6"><a></a>stac_items</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-display" data-execution_count="4">
 
@@ -3312,16 +3478,16 @@ Henry Rodman - Development Seed
 <li>load into an <code>xarray.Dataset</code> with <code>odc.stac.load</code></li>
 <li>don’t read any data yet, though (just metadata!)</li>
 </ul>
-<div id="1a4df1b5" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|3|5|6-7|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>dem_ds <span class="op">=</span> odc.stac.load(</span>
-<span id="cb7-2"><a></a>    stac_items,</span>
-<span id="cb7-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
-<span id="cb7-4"><a></a>    resolution<span class="op">=</span><span class="dv">30</span>,</span>
-<span id="cb7-5"><a></a>    chunks<span class="op">=</span>{},  <span class="co"># lazy eval</span></span>
-<span id="cb7-6"><a></a>    x<span class="op">=</span>(bbox[<span class="dv">0</span>], bbox[<span class="dv">2</span>]),  <span class="co"># limit to aoi</span></span>
-<span id="cb7-7"><a></a>    y<span class="op">=</span>(bbox[<span class="dv">1</span>], bbox[<span class="dv">3</span>]),</span>
-<span id="cb7-8"><a></a>)</span>
-<span id="cb7-9"><a></a><span class="bu">print</span>(dem_ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="01df1234" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="|3|5|6-7|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>dem_ds <span class="op">=</span> odc.stac.load(</span>
+<span id="cb8-2"><a></a>    stac_items,</span>
+<span id="cb8-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
+<span id="cb8-4"><a></a>    resolution<span class="op">=</span><span class="dv">30</span>,</span>
+<span id="cb8-5"><a></a>    chunks<span class="op">=</span>{},  <span class="co"># lazy eval</span></span>
+<span id="cb8-6"><a></a>    x<span class="op">=</span>(bbox[<span class="dv">0</span>], bbox[<span class="dv">2</span>]),  <span class="co"># limit to aoi</span></span>
+<span id="cb8-7"><a></a>    y<span class="op">=</span>(bbox[<span class="dv">1</span>], bbox[<span class="dv">3</span>]),</span>
+<span id="cb8-8"><a></a>)</span>
+<span id="cb8-9"><a></a><span class="bu">print</span>(dem_ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
@@ -3343,9 +3509,9 @@ Data variables:
 <li>access to the <code>xarray</code> API for visualization and analysis</li>
 <li>read data from cloud storage “just-in-time”</li>
 </ul>
-<div id="479d692c" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb9-2"><a></a>    dem_ds[<span class="st">"data"</span>].squeeze().plot.imshow()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="785ea496" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb10-2"><a></a>    dem_ds[<span class="st">"data"</span>].squeeze().plot.imshow()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -3360,37 +3526,37 @@ Data variables:
 <ul>
 <li>read another dataset from a different source</li>
 </ul>
-<div id="9172b4bb" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
-<span id="cb10-2"><a></a>    <span class="st">"https://services.terrascope.be/stac"</span></span>
-<span id="cb10-3"><a></a>)</span>
-<span id="cb10-4"><a></a></span>
-<span id="cb10-5"><a></a><span class="co"># sometimes necessary before running a collection search</span></span>
-<span id="cb10-6"><a></a>client.add_conforms_to(<span class="st">"COLLECTIONS"</span>)</span>
-<span id="cb10-7"><a></a>collection_search <span class="op">=</span> client.collection_search(</span>
-<span id="cb10-8"><a></a>    q<span class="op">=</span><span class="st">"WorldCover"</span>, bbox<span class="op">=</span>bbox_4326</span>
-<span id="cb10-9"><a></a>)</span>
-<span id="cb10-10"><a></a></span>
-<span id="cb10-11"><a></a>stac_items <span class="op">=</span> client.search(</span>
-<span id="cb10-12"><a></a>    collections<span class="op">=</span><span class="bu">next</span>(collection_search.collections()).<span class="bu">id</span>,</span>
-<span id="cb10-13"><a></a>    bbox<span class="op">=</span>bbox_4326,</span>
-<span id="cb10-14"><a></a>).item_collection()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="279af51e" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
+<span id="cb11-2"><a></a>    <span class="st">"https://services.terrascope.be/stac"</span></span>
+<span id="cb11-3"><a></a>)</span>
+<span id="cb11-4"><a></a></span>
+<span id="cb11-5"><a></a><span class="co"># sometimes necessary before running a collection search</span></span>
+<span id="cb11-6"><a></a>client.add_conforms_to(<span class="st">"COLLECTIONS"</span>)</span>
+<span id="cb11-7"><a></a>collection_search <span class="op">=</span> client.collection_search(</span>
+<span id="cb11-8"><a></a>    q<span class="op">=</span><span class="st">"WorldCover"</span>, bbox<span class="op">=</span>bbox_4326</span>
+<span id="cb11-9"><a></a>)</span>
+<span id="cb11-10"><a></a></span>
+<span id="cb11-11"><a></a>stac_items <span class="op">=</span> client.search(</span>
+<span id="cb11-12"><a></a>    collections<span class="op">=</span><span class="bu">next</span>(collection_search.collections()).<span class="bu">id</span>,</span>
+<span id="cb11-13"><a></a>    bbox<span class="op">=</span>bbox_4326,</span>
+<span id="cb11-14"><a></a>).item_collection()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="load-land-cover" class="slide level2 hide-title center">
 <h2>Load land cover</h2>
-<div id="c65520e0" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>landcover_ds <span class="op">=</span> odc.stac.load(</span>
-<span id="cb11-2"><a></a>    stac_items,</span>
-<span id="cb11-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
-<span id="cb11-4"><a></a>    resolution<span class="op">=</span><span class="dv">30</span>,</span>
-<span id="cb11-5"><a></a>    dtype<span class="op">=</span><span class="st">"uint8"</span>,</span>
-<span id="cb11-6"><a></a>    resampling<span class="op">=</span><span class="st">"nearest"</span>,</span>
-<span id="cb11-7"><a></a>    chunks<span class="op">=</span>{},  <span class="co"># lazy eval</span></span>
-<span id="cb11-8"><a></a>    x<span class="op">=</span>(bbox[<span class="dv">0</span>], bbox[<span class="dv">2</span>]),  <span class="co"># limit to aoi</span></span>
-<span id="cb11-9"><a></a>    y<span class="op">=</span>(bbox[<span class="dv">1</span>], bbox[<span class="dv">3</span>]),</span>
-<span id="cb11-10"><a></a>)</span>
-<span id="cb11-11"><a></a><span class="bu">print</span>(landcover_ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="148ee22e" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>landcover_ds <span class="op">=</span> odc.stac.load(</span>
+<span id="cb12-2"><a></a>    stac_items,</span>
+<span id="cb12-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
+<span id="cb12-4"><a></a>    resolution<span class="op">=</span><span class="dv">30</span>,</span>
+<span id="cb12-5"><a></a>    dtype<span class="op">=</span><span class="st">"uint8"</span>,</span>
+<span id="cb12-6"><a></a>    resampling<span class="op">=</span><span class="st">"nearest"</span>,</span>
+<span id="cb12-7"><a></a>    chunks<span class="op">=</span>{},  <span class="co"># lazy eval</span></span>
+<span id="cb12-8"><a></a>    x<span class="op">=</span>(bbox[<span class="dv">0</span>], bbox[<span class="dv">2</span>]),  <span class="co"># limit to aoi</span></span>
+<span id="cb12-9"><a></a>    y<span class="op">=</span>(bbox[<span class="dv">1</span>], bbox[<span class="dv">3</span>]),</span>
+<span id="cb12-10"><a></a>)</span>
+<span id="cb12-11"><a></a><span class="bu">print</span>(landcover_ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="8">
 <div class="cell-output cell-output-stdout">
@@ -3411,16 +3577,16 @@ Data variables:
 <ul>
 <li>combine the two Datasets into a single <code>xarray.Dataset</code></li>
 </ul>
-<div id="0a11b700" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>merged <span class="op">=</span> xr.merge(</span>
-<span id="cb13-2"><a></a>  [</span>
-<span id="cb13-3"><a></a>      landcover_ds.squeeze().rename({<span class="st">"ESA_WORLDCOVER_10M_MAP"</span>: <span class="st">"land_cover"</span>}),</span>
-<span id="cb13-4"><a></a>      dem_ds.squeeze().rename({<span class="st">"data"</span>: <span class="st">"elevation_m"</span>}),</span>
-<span id="cb13-5"><a></a>  ],</span>
-<span id="cb13-6"><a></a>  compat<span class="op">=</span><span class="st">"override"</span></span>
-<span id="cb13-7"><a></a>)</span>
-<span id="cb13-8"><a></a></span>
-<span id="cb13-9"><a></a><span class="bu">print</span>(merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="026811d4" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>merged <span class="op">=</span> xr.merge(</span>
+<span id="cb14-2"><a></a>  [</span>
+<span id="cb14-3"><a></a>      landcover_ds.squeeze().rename({<span class="st">"ESA_WORLDCOVER_10M_MAP"</span>: <span class="st">"land_cover"</span>}),</span>
+<span id="cb14-4"><a></a>      dem_ds.squeeze().rename({<span class="st">"data"</span>: <span class="st">"elevation_m"</span>}),</span>
+<span id="cb14-5"><a></a>  ],</span>
+<span id="cb14-6"><a></a>  compat<span class="op">=</span><span class="st">"override"</span></span>
+<span id="cb14-7"><a></a>)</span>
+<span id="cb14-8"><a></a></span>
+<span id="cb14-9"><a></a><span class="bu">print</span>(merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="9">
 <div class="cell-output cell-output-stdout">
@@ -3444,16 +3610,16 @@ Data variables:
 </ul>
 <div class="columns">
 <div class="column">
-<div id="5c084bb3" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb15-2"><a></a>    stats <span class="op">=</span> (</span>
-<span id="cb15-3"><a></a>        merged.elevation_m.groupby(</span>
-<span id="cb15-4"><a></a>            merged.land_cover</span>
-<span id="cb15-5"><a></a>        ).mean().compute()</span>
-<span id="cb15-6"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4452d9f8" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb16-2"><a></a>    stats <span class="op">=</span> (</span>
+<span id="cb16-3"><a></a>        merged.elevation_m.groupby(</span>
+<span id="cb16-4"><a></a>            merged.land_cover</span>
+<span id="cb16-5"><a></a>        ).mean().compute()</span>
+<span id="cb16-6"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
-<div id="caae5fd8" class="cell" data-execution_count="11">
+<div id="8434b438" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <style scoped="">
@@ -3533,15 +3699,21 @@ Data variables:
 </div></div>
 </section></section>
 <section>
-<section id="conclusion" class="title-slide slide level1 center">
-<h1>Conclusion</h1>
+<section id="closing-thoughts" class="title-slide slide level1 center">
+<h1>Closing thoughts</h1>
 <div class="columns">
-<div class="column">
+<div class="column" style="width:50%;">
 <ul>
 <li>STAC is working on a very large scale already</li>
-<li>evolving fast (but not too fast)</li>
-<li>momemtum of STAC-based applications is real</li>
+<li>adoption by large organizations has been a huge accelerator</li>
+<li>more STAC, please</li>
 </ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="./images/yukon_delta.png" class="quarto-figure quarto-figure-right" style="width:80.0%"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="thank-you" class="slide level2 center">
