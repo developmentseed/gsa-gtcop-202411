@@ -1,0 +1,677 @@
+---
+title: "STAC at Scale"
+subtitle: "**GSA GtCoP November 2024**: Designing and maintaining STAC infrastructure for large‐scale applications"
+author: "Henry Rodman"
+date: "November 19, 2024"
+format:
+  revealjs:
+    center: true
+    center-title-slide: true
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/logo_no_text.png
+    footer: "[developmentseed.org](https://developmentseed.org)"
+    theme: white # try black for dark theme
+    css: styles.css    
+    navigation-mode: vertical
+    controls-layout: bottom-right
+    controls-tutorial: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      cache: true
+title-slide-attributes:
+    data-background-image: images/devseed_background.png
+---
+
+## Development Seed
+
+:::: {.columns}
+::: {.column width="50%"}
+- geospatial engineering and product design consultancy 
+- 20 years of operations with offices in Washington DC, and Lisbon, Portugal. With 54+ staff working across the globe.
+:::
+::: {.column width="50%"}
+<iframe src="https://developmentseed.org/" width="500" height="480" style="" frameBorder="0" allowFullScreen></iframe>
+:::
+::::
+
+::: {.notes}
+- work with partners across the globe
+- many of the projects that we work on have been discussed at previous meetings (NASA MAAP) or will be at future meetings, so the projects I am presenting today are ones that may not otherwise appear at GtCoP
+:::
+
+# STAC refresher
+
+![](https://stacspec.org/public/images-original/STAC-01.png){.r-stretch}
+
+## SpatioTemporal Asset Catalog
+
+:::: {.columns}
+::: {.column width="60%"}
+- STAC spec
+- STAC API spec
+- community-driven
+:::
+
+
+::: {.column width="40%"}
+::: {.fragment}
+::: {.r-stretch}
+<iframe 
+  src="https://giphy.com/embed/hRsayJrDAx8WY" 
+  height="300px"
+  style="border: none;"
+  allowFullScreen>
+</iframe>
+<p><a href="https://giphy.com/gifs/funny-food-hRsayJrDAx8WY">via GIPHY</a></p>
+:::
+:::
+:::
+::::
+
+::: aside
+[September 2024 GtCoP presentation](https://github.com/GSA/gtcop-wiki/wiki/September-2024-STAC-presentations-by-development-community)
+:::
+
+::: {.notes}
+- everything comes back to the specs that have been defined to serve the needs of users
+:::
+
+## Vision
+
+> The goal is for all providers of spatiotemporal assets (Imagery, SAR, Point Clouds, Data Cubes, Full Motion Video, etc) to expose their data as SpatioTemporal Asset Catalogs (STAC), so that new code doesn't need to be written whenever a new data set or API is released.
+
+- Data providers don't need to write new APIs
+- Data consumers don't need to learn new APIs 
+- Tool builders don't need to build against new APIs
+
+::: {.notes}
+- reduce overhead for everyone
+:::
+
+## How is it going?
+
+:::: {.columns}
+::: {.column width="60%"}
+- Providers: producing STAC metadata and hosting STAC APIs
+- Developers: building awesome applications
+- Consumers: pushing the limits of APIs and STAC spec
+- Community: updating the STAC spec to meet needs of providers, consumers, and developers
+:::
+::: {.column width="40%"}
+::: {.r-stretch}
+![](./images/virtuous-cycle.png)
+:::
+:::
+::::
+
+::: {.notes}
+- win-win-win
+- building large-scale applications with STAC can push the entire ecosystem forward
+:::
+
+# The STAC advantage: producers
+
+## Benefits for data producers
+
+:::: {.columns}
+::: {.column width="60%"}
+- **Standardized metadata**
+  - no need to invent custom schemas
+  - use existing validation tools
+  - re-use or create extensions for specialized needs
+- **Flexible implementation**
+  - multiple database backends
+:::
+:::{.column width="40%"}
+![](./images/canyonlands.png){fig-align="right"}
+:::
+::::
+
+::: {.notes}
+- Extensions allow customization while maintaining interoperability
+- Validation tools ensure compliance and quality
+:::
+
+## Reduced development overhead
+
+:::: {.columns}
+::: {.column width="50%"}
+- **community-backed tools**
+  - metadata generation ([stactools](https://github.com/stac-utils/stactools))
+  - API implementations ([stac-fastapi](https://github.com/stac-utils/stac-fastapi))
+  - validation ([stac-validator](https://github.com/stac-utils/stac-validator))
+:::
+::: {.column width="50%"}
+- **community benefits**
+  - shared development costs
+  - battle-tested implementations
+  - active ecosystem growth
+:::
+::::
+
+::: {.notes}
+- Instead of building custom tools, providers can use existing ones
+- Community collaboration reduces individual development costs
+- Tools are continuously improved by real-world usage
+- Data becomes immediately usable in popular tools
+- Easier to integrate with cloud platforms
+- Reduces friction for users to access and work with data
+:::
+
+# The STAC advantage: developers
+
+## Benefits for developers
+
+- collaboration among many organizations
+- iteratively improve existing tools rather than building from scratch every time
+- dig into details of the spec to support as many use-cases as possible
+- re-use tested components!
+
+::: {.notes}
+- collaboration is key
+* let's look at few applications that show how application developers can build to the STAC spec
+:::
+
+## STAC Browser {.smaller}
+
+```{json}
+{
+  "collections": [
+    {
+      "id": "sentinel1-grd",
+      "type": "Collection",
+      "links": [
+        {
+          "rel": "items",
+          "type": "application/geo+json",
+          "href": "https://dev.asdi-catalog.org/collections/sentinel1-grd/items"
+        },
+        {
+          "rel": "parent",
+          "type": "application/json",
+          "href": "https://dev.asdi-catalog.org/"
+        }
+      ],
+      "title": "Sentinel-1 GRD",
+      "extent": {
+        "spatial": {
+          "bbox": [
+            [-180, -90, 180, 90]
+          ]
+        },
+        "temporal": {
+          "interval": [
+            [
+              "2014-10-10T00:00:00Z",
+              null
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+::: {.notes}
+- transform JSON into a beautiful interface
+:::
+
+## Explore STAC Browser {.hide-title}
+
+::: {.r-stretch}
+<iframe 
+  src="https://radiantearth.github.io/stac-browser/#/?.language=en" 
+  width="100%"
+  height="100%"
+  style="border: none;"
+  allowFullScreen>
+</iframe>
+:::
+
+::: footer
+<https://radiantearth.github.io/stac-browser/#/?.language=en>
+:::
+
+## Maxar imagery from Maui wildfires in August 2023
+
+::: {.r-stretch}
+<iframe 
+  src="https://raster.eoapi.dev/searches/c13976bc1e5dc7f3c2b4a64239871fc0/map?assets=visual&assets_bidx=visual|1,2,3&minzoom=8&maxzoom=22" 
+  width="100%"
+  height="100%"
+  style="border: none;"
+  allowFullScreen>
+</iframe>
+:::
+
+::: footer
+<https://raster.eoapi.dev/collections/MAXAR_Maui_Hawaii_fires_Aug_23/map?assets=visual&assets_bidx=visual|1,2,3&minzoom=8&maxzoom=22>
+:::
+
+::: {.notes}
+- render parameters stored as metadata
+- visualize any collection with same API
+:::
+
+# STAC at scale: a journey
+
+## Outline {.hide-title}
+
+### LandsatLook
+- user-facing USGS application for visualizaing mosaics of Landsat scenes
+
+### Microsoft Planetary Computer
+- massive geospatial data catalog 
+- dynamic visualization capabilities
+
+### Amazon Sustainability Data Initiative
+- public science data
+- event-driven STAC metadata generation pipelines
+
+::: {.notes}
+Challenges include:
+- ever-increasing data volume!
+- search speed for applications that consume data
+- ingestion pipelines
+:::
+
+# LandsatLook
+
+- an early STAC-powered application
+- interactive Landsat imagery browser
+- spurred the development of [MosaicJSON](https://github.com/developmentseed/mosaicjson-spec)
+- inspired the next generation of database backends
+
+::: {.notes}
+- USGS has a STAC API for serving STAC metadata for Landsat missions
+- Born out of an experiment to test mosaic visualizations from STAC metadata
+- Sending STAC API requests for every single tile request is not efficient
+- Spurred the development of MosaicJSON
+- The experience with dynamic visualizations from stac-server was instrumental in determining the next generation of tools
+:::
+
+## Explore LandsatLook {.hide-title background-interactive=true background-iframe="https://landsatlook.usgs.gov/explore?date=2024-10-17%7C2024-11-15&sat=LANDSAT_9%7CLANDSAT_8"}
+
+::: footer
+<https://landsatlook.usgs.gov/explore>
+:::
+
+## MosaicJSON
+
+:::: {.columns}
+::: {.column width="50%"}
+- pre-compute which STAC items are required for each XYZ tile
+  - based on search criteria and item spatial extents
+- makes dynamic mosaic visualizations possible!
+- reduces burden on STAC API, but costly to create
+:::
+::: {.column width="50%"}
+![](https://user-images.githubusercontent.com/10407788/68706772-7539ac00-055e-11ea-8c15-5ee4f30b143e.jpg)
+:::
+::::
+
+:::{.notes}
+- MosaicJSON files can take a while to generate for a large area
+:::
+
+# Microsoft Planetary Computer
+
+:::{.fragment}
+- built on open standards
+- STAC API with many public datasets
+- continuous flow of new data
+- interactive visualization platform powered by STAC metadata
+:::
+
+::: {.notes}
+- drove the development of `pgstac`
+- great example of a visually stunning STAC-backed application
+:::
+
+## Explore Planetary Computer {.hide-title background-interactive=true background-iframe="https://planetarycomputer.microsoft.com/catalog"}
+
+::: footer
+<https://planetarycomputer.microsoft.com/catalog>
+:::
+
+:::{.notes}
+- Show how you can filter by date range, show different visualizations, etc.
+:::
+
+## `pgstac` origin story {.hide-title}
+
+::::{.columns}
+:::{.column width="50%"}
+**How can we optimize for lightning fast queries?**
+:::
+:::{.column width="50%"}
+:::{.fragment}
+[pgstac](https://github.com/stac-utils/pgstac) was born
+![](https://user-images.githubusercontent.com/10407788/174893876-7a3b5b7a-95a5-48c4-9ff2-cc408f1b6af9.png)
+:::
+:::
+::::
+
+::: {.notes}
+- needed a new database backend for STAC operations
+- it needed to be really fast to support API requests and dynamic visualizations 
+:::
+
+## `pgstac`
+
+> PostgreSQL schema and functions for Spatio-Temporal Asset Catalog (STAC)
+
+
+::::{.columns}
+:::{.column width="50%"}
+**strengths**
+
+- it's Postgres!
+- built to handle hundreds of millions of items
+- optimized for "needle in haystack" queries
+- hashed searches
+:::
+:::{.column width="50%"}
+**weaknesses**
+
+- requires some tinkering to achieve optimal performance
+- aggregation statistics can be somewhat slow
+:::
+::::
+
+::: {.notes}
+- a lot of pgstac's development was funded by work on MPC
+- goal was to put as much of the STAC ops in the database so many clients could talk to it without re-writing the core
+- putting things in the postgres db gives you a lot for free
+- hashed searches: many queries (e.g. for dynamic tiling) are going to yield the same set of items. pgstac has a mechanism for caching search results to enable faster retrieval of matching items
+:::
+
+## `titiler-pgstac`
+::::{.columns}
+:::{.column width="60%"}
+- dynamic mosaic visualizations from STAC collections
+- connects directly to `pgstac` database
+  - (no API requests for STAC queries)
+- hashed searches!
+:::
+:::{.column width="40%"}
+![](https://private-user-images.githubusercontent.com/10407788/254405576-24a64ea9-fede-4ee8-ab8d-625c9e94db44.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzIwMjkyODcsIm5iZiI6MTczMjAyODk4NywicGF0aCI6Ii8xMDQwNzc4OC8yNTQ0MDU1NzYtMjRhNjRlYTktZmVkZS00ZWU4LWFiOGQtNjI1YzllOTRkYjQ0LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE5VDE1MDk0N1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTZkNmMxNzNjZDlmNDk4MzVhMTBlMWYyMmEzY2UyMzU5MTg5MTRjMjAxNTc4Njg3ZTEzMDBlMTdhOGE2NmNiMWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.z6q9qbktHJoBN1KNoBaTuSEDamcD6f8nsXJ996ltjH8){width="100%" fig-align="right"}
+:::
+::::
+::: {.aside}
+[stac-utils/titiler-pgstac](https://github.com/stac-utils/titiler-pgstac)
+:::
+
+## Integrated mosaic tiling
+![](./images/mosaic_tiling.png)
+
+::: {.notes}
+- fastest way to assemble a tile from an arbitrary STAC query
+:::
+
+# Amazon Sustainability Data Initiative (ASDI)
+
+:::{.fragment}
+- sustainability data situated next to a compute platform
+- continuously updated
+- NODD: partnership with NOAA
+:::
+
+## ASDI Catalog {.hide-title background-interactive=true background-iframe="https://radiantearth.github.io/stac-browser/#/external/dev.asdi-catalog.org/?.language=en"}
+
+::: footer
+:::
+
+## stactools-packages
+
+> The stactools-packages github organization is a home for datasets and tool packages using the SpatioTemporal Asset Catalog (STAC) specification.
+
+- user-generated STAC metadata building packages
+- `href` -> STAC item
+
+## Browse stacktools-packages {.hide-title background-interactive=true background-iframe="https://stactools-packages.github.io/"}
+
+::: footer
+:::
+
+
+## stactools-pipelines
+
+![](https://github.com/developmentseed/stactools-pipelines/blob/main/docs/aws_asdi_cog.png?raw=true){.r-stretch}
+
+::: {.aside}
+<https://developmentseed.org/blog/2023-10-20-asdi/>
+:::
+
+::: footer
+[developmentseed/stactools-pipelines](https://github.com/developmentseed/stactools-pipelines)
+:::
+
+::: {.notes}
+- event-based processing
+- SNS notifications for new uploads to a bucket provide a mechanism for keeping the STAC records closely synced with new data
+- As soon as a new asset lands, a pipeline to generate STAC metadata is triggered
+:::
+
+## `eoAPI`
+
+::::{.columns}
+:::{.column width="60%"}
+> State-of-the-art services to enable data discovery, search, visualization, and access.
+
+- readily deployable
+  - AWS CDK: [`eoapi-cdk`](https://github.com/developmentseed/eoapi-cdk) 
+  - kubernetes: [`eoapi-k8s`](https://github.com/developmentseed/eoapi-k8s)
+:::
+:::{.column width="40%"}
+![](https://github.com/developmentseed/eoAPI/blob/main/docs/logos/eoAPI.png?raw=true){width="100%" fig-align="right"}
+[developmentseed/eoapi](https://eoapi.dev/)
+:::
+::::
+
+::: {.notes}
+- consistent API structure for all services (FastAPI)
+- product of development on all of the projects I have discussed today
+- any combination of components can be deployed
+:::
+
+# The STAC advantage: consumers
+- don't need to learn file path schema for a new dataset (don't need to even think about file ops)
+- can rely on tools like [`pystac_client`](https://pystac-client.readthedocs.io/en/latest/) for API operations and [`odc_stac`](https://odc-stac.readthedocs.io/en/latest/) for file i/o
+
+## Example workflow
+
+- thanks to the STAC spec we only need a few libraries to interact with data from any collection!
+
+```{python}
+#| code-line-numbers: "|1|3|5|"
+import odc.stac
+import pyproj
+import pystac_client
+import rasterio
+import xarray as xr
+from shapely.geometry import box
+from shapely.ops import transform
+```
+
+## Define AOI {.hide-title}
+
+- set up an AOI
+
+```{python}
+#| code-line-numbers: "|1|3-5|7-14|"
+crs = pyproj.CRS.from_string("epsg:5070")
+
+# bounding box that surrounds the North Shore of Lake Superior
+bbox = (373926, 2744693, 406338, 2765304)
+aoi = box(*bbox)
+
+# STAC items **always** store bounding box info in epsg:4326
+transformer_4326 = pyproj.Transformer.from_crs(
+    crs_from=crs,
+    crs_to="epsg:4326",
+    always_xy=True,
+)
+
+bbox_4326 = transform(transformer_4326.transform, aoi).bounds
+print(bbox_4326)
+```
+
+## Collection search {.hide-title}
+- find DEM collections in a STAC API
+
+```{python}
+#| output-location: fragment
+client = pystac_client.Client.open(
+    "https://dev.asdi-catalog.org/"
+)
+
+collection_search = client.collection_search(q="DEM", bbox=bbox_4326)
+search_results = {
+    collection.id: collection
+    for collection in collection_search.collections()
+}
+
+for collection_id, collection in search_results.items():
+    print(f"{collection_id}: {collection.description}\n")
+```
+
+## Item search {.smaller}
+
+- query STAC items
+
+```{python}
+#| output-location: column
+stac_items = client.search(
+    collections="cop-dem-glo-30",
+    bbox=bbox_4326,
+).item_collection()
+
+stac_items
+```
+
+## `odc.stac.load` {.hide-title}
+- load into an `xarray.Dataset` with `odc.stac.load`
+- don't read any data yet, though (just metadata!)
+
+```{python}
+#| code-line-numbers: "|3|5|6-7|"
+#| output-location: fragment
+dem_ds = odc.stac.load(
+    stac_items,
+    crs=crs,  # assets get reprojected to match crs
+    resolution=30,
+    chunks={},  # lazy eval
+    x=(bbox[0], bbox[2]),  # limit to aoi
+    y=(bbox[1], bbox[3]),
+)
+print(dem_ds)
+```
+
+## `xarray` API {.hide-title}
+
+- access to the `xarray` API for visualization and analysis
+- read data from cloud storage "just-in-time"
+```{python}
+with rasterio.Env(aws_no_sign_request=True):
+    dem_ds["data"].squeeze().plot.imshow()
+```
+
+## New source, same tools 
+- read another dataset from a different source
+```{python}
+client = pystac_client.Client.open(
+    "https://services.terrascope.be/stac"
+)
+
+# sometimes necessary before running a collection search
+client.add_conforms_to("COLLECTIONS")
+collection_search = client.collection_search(
+    q="WorldCover", bbox=bbox_4326
+)
+
+stac_items = client.search(
+    collections=next(collection_search.collections()).id,
+    bbox=bbox_4326,
+).item_collection()
+```
+
+## Load land cover {.hide-title}
+
+```{python}
+#| output-location: fragment
+landcover_ds = odc.stac.load(
+    stac_items,
+    crs=crs,  # assets get reprojected to match crs
+    resolution=30,
+    dtype="uint8",
+    resampling="nearest",
+    chunks={},  # lazy eval
+    x=(bbox[0], bbox[2]),  # limit to aoi
+    y=(bbox[1], bbox[3]),
+)
+print(landcover_ds)
+```
+
+## Merge datasets {.hide-title}
+
+- combine the two Datasets into a single `xarray.Dataset`
+```{python}
+#| output-location: fragment
+merged = xr.merge(
+  [
+      landcover_ds.squeeze().rename({"ESA_WORLDCOVER_10M_MAP": "land_cover"}),
+      dem_ds.squeeze().rename({"data": "elevation_m"}),
+  ],
+  compat="override"
+)
+
+print(merged)
+```
+
+## Analyze disparate datasets {.hide-title .smaller}
+
+- calculate mean elevation by land cover class
+
+:::: columns
+::: column
+```{python}
+with rasterio.Env(aws_no_sign_request=True):
+    stats = (
+        merged.elevation_m.groupby(
+            merged.land_cover
+        ).mean().compute()
+    )
+
+```
+:::
+
+::: column
+```{python}
+#| echo: false
+display(stats.drop_vars(["spatial_ref", "time"]).to_dataframe().reset_index().astype("int"))
+```
+:::
+::::
+
+# Closing thoughts
+:::: columns
+:::{.column width="50%"}
+- STAC is working on a very large scale already
+- adoption by large organizations has been a huge accelerator
+- more STAC, please
+:::
+:::{.column width="40%"}
+![](./images/yukon_delta.png){width="80%" fig-align="right"}
+:::
+::::
+
+## Thank you!
+
+<henry@developmentseed.org>

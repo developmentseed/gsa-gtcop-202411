@@ -18,11 +18,18 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install && uv sync
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render
-        uses: quarto-dev/quarto-actions/render@v2
+        run: |
+          uv run quarto render .
 
       - name: Deploy PR Preview
         uses: rossjrw/pr-preview-action@v1.4.8
