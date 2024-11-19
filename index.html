@@ -982,7 +982,7 @@ Henry Rodman
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-right">
 <figure>
-<p><img data-src="https://private-user-images.githubusercontent.com/10407788/254405576-24a64ea9-fede-4ee8-ab8d-625c9e94db44.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzIwMjkyODcsIm5iZiI6MTczMjAyODk4NywicGF0aCI6Ii8xMDQwNzc4OC8yNTQ0MDU1NzYtMjRhNjRlYTktZmVkZS00ZWU4LWFiOGQtNjI1YzllOTRkYjQ0LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE5VDE1MDk0N1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTZkNmMxNzNjZDlmNDk4MzVhMTBlMWYyMmEzY2UyMzU5MTg5MTRjMjAxNTc4Njg3ZTEzMDBlMTdhOGE2NmNiMWEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.z6q9qbktHJoBN1KNoBaTuSEDamcD6f8nsXJ996ltjH8" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+<p><img data-src="https://github.com/stac-utils/titiler-pgstac/blob/main/docs/logos/TiTilerPgSTAC_logo_large.png?raw=true" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
 </figure>
 </div>
 </div></div>
@@ -1117,7 +1117,7 @@ Henry Rodman
 <ul>
 <li>thanks to the STAC spec we only need a few libraries to interact with data from any collection!</li>
 </ul>
-<div id="8803c6ba" class="cell" data-execution_count="1">
+<div id="a403062b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1|3|5|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> odc.stac</span>
 <span id="cb2-2"><a></a><span class="im">import</span> pyproj</span>
 <span id="cb2-3"><a></a><span class="im">import</span> pystac_client</span>
@@ -1132,7 +1132,7 @@ Henry Rodman
 <ul>
 <li>set up an AOI</li>
 </ul>
-<div id="2a952350" class="cell" data-execution_count="2">
+<div id="dbbc257a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|1|3-5|7-14|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>crs <span class="op">=</span> pyproj.CRS.from_string(<span class="st">"epsg:5070"</span>)</span>
 <span id="cb3-2"><a></a></span>
 <span id="cb3-3"><a></a><span class="co"># bounding box that surrounds the North Shore of Lake Superior</span></span>
@@ -1158,7 +1158,7 @@ Henry Rodman
 <ul>
 <li>find DEM collections in a STAC API</li>
 </ul>
-<div id="6fc1c466" class="cell" data-execution_count="3">
+<div id="9b39f707" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
 <span id="cb5-2"><a></a>    <span class="st">"https://dev.asdi-catalog.org/"</span></span>
 <span id="cb5-3"><a></a>)</span>
@@ -1184,7 +1184,7 @@ Henry Rodman
 <ul>
 <li>query STAC items</li>
 </ul>
-<div id="7529c619" class="cell columns column-output-location" data-execution_count="4">
+<div id="d02d7366" class="cell columns column-output-location" data-execution_count="4">
 <div class="column">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>stac_items <span class="op">=</span> client.search(</span>
 <span id="cb7-2"><a></a>    collections<span class="op">=</span><span class="st">"cop-dem-glo-30"</span>,</span>
@@ -3478,7 +3478,7 @@ Henry Rodman
 <li>load into an <code>xarray.Dataset</code> with <code>odc.stac.load</code></li>
 <li>don’t read any data yet, though (just metadata!)</li>
 </ul>
-<div id="e9a1d043" class="cell" data-execution_count="5">
+<div id="72e72042" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8" data-code-line-numbers="|3|5|6-7|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>dem_ds <span class="op">=</span> odc.stac.load(</span>
 <span id="cb8-2"><a></a>    stac_items,</span>
 <span id="cb8-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
@@ -3509,7 +3509,7 @@ Data variables:
 <li>access to the <code>xarray</code> API for visualization and analysis</li>
 <li>read data from cloud storage “just-in-time”</li>
 </ul>
-<div id="8e86a534" class="cell" data-execution_count="6">
+<div id="5989b33f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb10-2"><a></a>    dem_ds[<span class="st">"data"</span>].squeeze().plot.imshow()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -3526,7 +3526,7 @@ Data variables:
 <ul>
 <li>read another dataset from a different source</li>
 </ul>
-<div id="bd37b5c8" class="cell" data-execution_count="7">
+<div id="36d751ff" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
 <span id="cb11-2"><a></a>    <span class="st">"https://services.terrascope.be/stac"</span></span>
 <span id="cb11-3"><a></a>)</span>
@@ -3545,7 +3545,7 @@ Data variables:
 </section>
 <section id="load-land-cover" class="slide level2 hide-title center">
 <h2>Load land cover</h2>
-<div id="9c3f2a0c" class="cell" data-execution_count="8">
+<div id="6c80f81e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>landcover_ds <span class="op">=</span> odc.stac.load(</span>
 <span id="cb12-2"><a></a>    stac_items,</span>
 <span id="cb12-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
@@ -3577,7 +3577,7 @@ Data variables:
 <ul>
 <li>combine the two Datasets into a single <code>xarray.Dataset</code></li>
 </ul>
-<div id="23648402" class="cell" data-execution_count="9">
+<div id="ea589d7a" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>merged <span class="op">=</span> xr.merge(</span>
 <span id="cb14-2"><a></a>  [</span>
 <span id="cb14-3"><a></a>      landcover_ds.squeeze().rename({<span class="st">"ESA_WORLDCOVER_10M_MAP"</span>: <span class="st">"land_cover"</span>}),</span>
@@ -3610,7 +3610,7 @@ Data variables:
 </ul>
 <div class="columns">
 <div class="column">
-<div id="0c4cac56" class="cell" data-execution_count="10">
+<div id="08de3f2c" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb16-2"><a></a>    stats <span class="op">=</span> (</span>
 <span id="cb16-3"><a></a>        merged.elevation_m.groupby(</span>
@@ -3619,7 +3619,7 @@ Data variables:
 <span id="cb16-6"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
-<div id="b49df46b" class="cell" data-execution_count="11">
+<div id="63f74e90" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <style scoped="">
