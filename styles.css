@@ -99,25 +99,6 @@
   color: var(--white);
 }
 
-/* Navigation controls */
-.controls button {
-  color: var(--primary-color) !important;
-}
-
-.controls button:hover {
-  color: var(--primary-dark) !important;
-}
-
-.controls .controls-arrow:before,
-.controls .controls-arrow:after {
-  background-color: var(--primary-color);
-}
-
-.controls .controls-arrow:hover:before,
-.controls .controls-arrow:hover:after {
-  background-color: var(--primary-dark);
-}
-
 /* Logo in top-left */
 .reveal .slide-logo {
   display: block;
