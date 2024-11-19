@@ -10,7 +10,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <meta name="author" content="Henry Rodman">
+  <meta name="author" content="Henry Rodman - Development Seed">
   <meta name="dcterms.date" content="2024-11-19">
   <title>STAC at Scale</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -399,12 +399,12 @@
 
 <section id="title-slide" data-background-image="images/devseed_background.png" class="quarto-title-block center">
   <h1 class="title">STAC at Scale</h1>
-  <p class="subtitle">Designing and maintaining STAC infrastructure for large‐scale applications</p>
+  <p class="subtitle"><strong>GSA GtCoP November 2024</strong>: Designing and maintaining STAC infrastructure for large‐scale applications</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Henry Rodman 
+Henry Rodman - Development Seed 
 </div>
 </div>
 </div>
@@ -423,6 +423,22 @@ Henry Rodman
 <iframe src="https://developmentseed.org/" width="500" height="480" style="" frameborder="0" allowfullscreen="">
 </iframe>
 </div></div>
+<aside class="notes">
+<ul>
+<li>work with partners across the globe</li>
+<li>many of the projects that we work on have been discussed at previous meetings (NASA MAAP) or will be at future meetings, so the projects I am presenting today are ones that may not otherwise appear at GtCoP</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section>
 <section id="stac-refresher" class="title-slide slide level1 center">
@@ -440,17 +456,19 @@ Henry Rodman
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="fragment">
-<iframe src="https://giphy.com/embed/hRsayJrDAx8WY" width="370" height="480" style="" frameborder="0" class="giphy-embed" allowfullscreen="">
+<div class="r-stretch">
+<iframe src="https://giphy.com/embed/hRsayJrDAx8WY" height="300px" style="border: none;" allowfullscreen="">
 </iframe>
 <p>
 <a href="https://giphy.com/gifs/funny-food-hRsayJrDAx8WY">via GIPHY</a>
 </p>
 </div>
-</div></div>
-<div class="footer">
-<p><a href="https://github.com/GSA/gtcop-wiki/wiki/September-2024-STAC-presentations-by-development-community">September 2024 GtCoP presentation</a></p>
 </div>
-</section>
+</div></div>
+
+<aside><div>
+<p><a href="https://github.com/GSA/gtcop-wiki/wiki/September-2024-STAC-presentations-by-development-community">September 2024 GtCoP presentation</a></p>
+</div></aside></section>
 <section id="vision" class="slide level2 center">
 <h2>Vision</h2>
 <blockquote>
@@ -478,20 +496,120 @@ Henry Rodman
 <section id="how-is-it-going" class="slide level2 center">
 <h2>How is it going?</h2>
 <div class="columns">
-<div class="column" style="width:70%;">
+<div class="column" style="width:60%;">
 <ul>
 <li>Providers: producing STAC metadata and hosting STAC APIs</li>
 <li>Developers: building awesome applications</li>
 <li>Consumers: pushing the limits of APIs and STAC spec</li>
 <li>Community: updating the STAC spec to meet needs of providers, consumers, and developers</li>
 </ul>
-</div><div class="column" style="width:30%;">
-<p><img data-src="https://icon-library.com/images/cycle-icon/cycle-icon-29.jpg"></p>
+</div><div class="column" style="width:40%;">
+<div class="r-stretch">
+<p><img data-src="./images/virtuous-cycle.png"></p>
+</div>
 </div></div>
+<aside class="notes">
+<ul>
+<li>win-win-win</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
-<section id="the-stac-spec-advantage" class="title-slide slide level1 center">
-<h1>The STAC spec advantage</h1>
+<section id="the-stac-advantage-producers" class="title-slide slide level1 center">
+<h1>The STAC advantage: producers</h1>
+
+</section>
+<section id="benefits-for-data-providers" class="slide level2 center">
+<h2>Benefits for Data Providers</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><strong>Standardized metadata</strong>
+<ul>
+<li>no need to invent custom schemas</li>
+<li>leverage existing validation tools</li>
+<li>extensions for specialized needs</li>
+</ul></li>
+<li><strong>Flexible implementation</strong>
+<ul>
+<li>multiple database backends</li>
+</ul></li>
+</ul>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Many providers start with static STAC and graduate to API when needed</li>
+<li>Extensions allow customization while maintaining interoperability</li>
+<li>Validation tools ensure compliance and quality</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reduced-development-overhead" class="slide level2 center">
+<h2>Reduced development overhead</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Community-backed tools</strong>
+<ul>
+<li>Metadata generation (<a href="https://github.com/stac-utils/stactools">stactools</a>)</li>
+<li>API implementations (<a href="https://github.com/stac-utils/stac-fastapi">stac-fastapi</a>)</li>
+<li>Validation (<a href="https://github.com/stac-utils/stac-validator">stac-validator</a>)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>Community benefits</strong>
+<ul>
+<li>Shared development costs</li>
+<li>Battle-tested implementations</li>
+<li>Active ecosystem growth</li>
+</ul></li>
+</ul>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Instead of building custom tools, providers can use existing ones</li>
+<li>Community collaboration reduces individual development costs</li>
+<li>Tools are continuously improved by real-world usage</li>
+<li>Data becomes immediately usable in popular tools</li>
+<li>Easier to integrate with cloud platforms</li>
+<li>Reduces friction for users to access and work with data</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="the-stac-advantage-developers" class="title-slide slide level1 center">
+<h1>The STAC advantage: developers</h1>
 <aside class="notes">
 <ul>
 <li>a few applications that show how application developers can build to the STAC spec</li>
@@ -586,6 +704,7 @@ Henry Rodman
 <li>an early STAC-powered application</li>
 <li>interactive Landsat imagery browser</li>
 <li>spurred the development of <a href="https://github.com/developmentseed/mosaicjson-spec">MosaicJSON</a></li>
+<li>inspired the next generation of database backends</li>
 </ul>
 <aside class="notes">
 <ul>
@@ -593,6 +712,7 @@ Henry Rodman
 <li>Born out of an experiment to test mosaic visualizations from STAC metadata</li>
 <li>Sending STAC API requests for every single tile request is not efficient</li>
 <li>Spurred the development of MosaicJSON</li>
+<li>The experience with dynamic visualizations from stac-server was instrumental in determining the next generation of tools</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -701,6 +821,22 @@ Henry Rodman
 <p><a href="https://github.com/stac-utils/pgstac">pgstac</a> was born <img data-src="https://user-images.githubusercontent.com/10407788/174893876-7a3b5b7a-95a5-48c4-9ff2-cc408f1b6af9.png"></p>
 </div>
 </div></div>
+<aside class="notes">
+<ul>
+<li>needed a new database backend for STAC operations</li>
+<li>it needed to be really fast to support API requests and dynamic visualizations</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="pgstac" class="slide level2 center">
 <h2><code>pgstac</code></h2>
@@ -711,7 +847,7 @@ Henry Rodman
 <div class="column" style="width:50%;">
 <p><strong>strengths</strong></p>
 <ul>
-<li>Postgres!</li>
+<li>it’s Postgres!</li>
 <li>built to handle hundreds of millions of items</li>
 <li>optimized for “needle in haystack” queries</li>
 <li>hashed searches</li>
@@ -803,14 +939,10 @@ Henry Rodman
 <p><a href="https://developmentseed.org/blog/2023-10-20-asdi/" class="uri">https://developmentseed.org/blog/2023-10-20-asdi/</a></p>
 </div></aside></section></section>
 <section>
-<section id="data-conusumer-experience" class="title-slide slide level1 center">
-<h1>Data conusumer experience</h1>
-
-</section>
-<section id="the-stac-api-advantage" class="slide level2 center">
-<h2>the STAC API advantage</h2>
+<section id="the-stac-advantage-consumers" class="title-slide slide level1 center">
+<h1>The STAC advantage: consumers</h1>
 <ul>
-<li>don’t need to learn file path schema for a new dataset</li>
+<li>don’t need to learn file path schema for a new dataset (don’t need to even think about file ops)</li>
 <li>can rely on tools like <a href="https://pystac-client.readthedocs.io/en/latest/"><code>pystac_client</code></a> for API operations and <a href="https://odc-stac.readthedocs.io/en/latest/"><code>odc_stac</code></a> for file i/o</li>
 </ul>
 </section>
@@ -819,7 +951,7 @@ Henry Rodman
 <ul>
 <li>thanks to the STAC spec we only need a few libraries to interact with data from any collection!</li>
 </ul>
-<div id="4954ff83" class="cell" data-execution_count="1">
+<div id="58eb5d2c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1|3|5|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> odc.stac</span>
 <span id="cb1-2"><a></a><span class="im">import</span> pyproj</span>
 <span id="cb1-3"><a></a><span class="im">import</span> pystac_client</span>
@@ -834,7 +966,7 @@ Henry Rodman
 <ul>
 <li>set up an AOI</li>
 </ul>
-<div id="d998d482" class="cell" data-execution_count="2">
+<div id="86da4c26" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1|3-5|7-14|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>crs <span class="op">=</span> pyproj.CRS.from_string(<span class="st">"epsg:5070"</span>)</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a><span class="co"># bounding box that surrounds the North Shore of Lake Superior</span></span>
@@ -860,7 +992,7 @@ Henry Rodman
 <ul>
 <li>find DEM collections in a STAC API</li>
 </ul>
-<div id="dcb0c2ae" class="cell" data-execution_count="3">
+<div id="65ba1814" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
 <span id="cb4-2"><a></a>    <span class="st">"https://dev.asdi-catalog.org/"</span></span>
 <span id="cb4-3"><a></a>)</span>
@@ -886,7 +1018,7 @@ Henry Rodman
 <ul>
 <li>query STAC items</li>
 </ul>
-<div id="07db62b6" class="cell columns column-output-location" data-execution_count="4">
+<div id="83098a42" class="cell columns column-output-location" data-execution_count="4">
 <div class="column">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>stac_items <span class="op">=</span> client.search(</span>
 <span id="cb6-2"><a></a>    collections<span class="op">=</span><span class="st">"cop-dem-glo-30"</span>,</span>
@@ -3180,7 +3312,7 @@ Henry Rodman
 <li>load into an <code>xarray.Dataset</code> with <code>odc.stac.load</code></li>
 <li>don’t read any data yet, though (just metadata!)</li>
 </ul>
-<div id="fe35feb0" class="cell" data-execution_count="5">
+<div id="1a4df1b5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|3|5|6-7|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>dem_ds <span class="op">=</span> odc.stac.load(</span>
 <span id="cb7-2"><a></a>    stac_items,</span>
 <span id="cb7-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
@@ -3211,7 +3343,7 @@ Data variables:
 <li>access to the <code>xarray</code> API for visualization and analysis</li>
 <li>read data from cloud storage “just-in-time”</li>
 </ul>
-<div id="b76852d3" class="cell" data-execution_count="6">
+<div id="479d692c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb9-2"><a></a>    dem_ds[<span class="st">"data"</span>].squeeze().plot.imshow()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -3228,7 +3360,7 @@ Data variables:
 <ul>
 <li>read another dataset from a different source</li>
 </ul>
-<div id="b6a5a60e" class="cell" data-execution_count="7">
+<div id="9172b4bb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>client <span class="op">=</span> pystac_client.Client.<span class="bu">open</span>(</span>
 <span id="cb10-2"><a></a>    <span class="st">"https://services.terrascope.be/stac"</span></span>
 <span id="cb10-3"><a></a>)</span>
@@ -3247,7 +3379,7 @@ Data variables:
 </section>
 <section id="load-land-cover" class="slide level2 hide-title center">
 <h2>Load land cover</h2>
-<div id="2fd54a06" class="cell" data-execution_count="8">
+<div id="c65520e0" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>landcover_ds <span class="op">=</span> odc.stac.load(</span>
 <span id="cb11-2"><a></a>    stac_items,</span>
 <span id="cb11-3"><a></a>    crs<span class="op">=</span>crs,  <span class="co"># assets get reprojected to match crs</span></span>
@@ -3279,7 +3411,7 @@ Data variables:
 <ul>
 <li>combine the two Datasets into a single <code>xarray.Dataset</code></li>
 </ul>
-<div id="7243f160" class="cell" data-execution_count="9">
+<div id="0a11b700" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>merged <span class="op">=</span> xr.merge(</span>
 <span id="cb13-2"><a></a>  [</span>
 <span id="cb13-3"><a></a>      landcover_ds.squeeze().rename({<span class="st">"ESA_WORLDCOVER_10M_MAP"</span>: <span class="st">"land_cover"</span>}),</span>
@@ -3312,7 +3444,7 @@ Data variables:
 </ul>
 <div class="columns">
 <div class="column">
-<div id="37cda211" class="cell" data-execution_count="10">
+<div id="5c084bb3" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="cf">with</span> rasterio.Env(aws_no_sign_request<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb15-2"><a></a>    stats <span class="op">=</span> (</span>
 <span id="cb15-3"><a></a>        merged.elevation_m.groupby(</span>
@@ -3321,7 +3453,7 @@ Data variables:
 <span id="cb15-6"><a></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
-<div id="ef0d6f19" class="cell" data-execution_count="11">
+<div id="caae5fd8" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <style scoped="">
@@ -3408,6 +3540,7 @@ Data variables:
 <ul>
 <li>STAC is working on a very large scale already</li>
 <li>evolving fast (but not too fast)</li>
+<li>momemtum of STAC-based applications is real</li>
 </ul>
 </div></div>
 </section>

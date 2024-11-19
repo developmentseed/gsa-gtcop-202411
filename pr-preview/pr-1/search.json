@@ -4,14 +4,14 @@
     "href": "index.html#development-seed",
     "title": "STAC at Scale",
     "section": "Development Seed",
-    "text": "Development Seed\n\n\n\ngeospatial engineering and product design consultancy\n20 years of operations with offices in Washington DC, and Lisbon, Portugal. With 54+ staff working across the globe."
+    "text": "Development Seed\n\n\n\ngeospatial engineering and product design consultancy\n20 years of operations with offices in Washington DC, and Lisbon, Portugal. With 54+ staff working across the globe.\n\n\n\n\n\n\n\nwork with partners across the globe\nmany of the projects that we work on have been discussed at previous meetings (NASA MAAP) or will be at future meetings, so the projects I am presenting today are ones that may not otherwise appear at GtCoP"
   },
   {
     "objectID": "index.html#spatiotemporal-asset-catalog",
     "href": "index.html#spatiotemporal-asset-catalog",
     "title": "STAC at Scale",
     "section": "SpatioTemporal Asset Catalog",
-    "text": "SpatioTemporal Asset Catalog\n\n\n\nSTAC spec\nSTAC API spec\ncommunity-driven\n\n\n\n\n\n\nvia GIPHY\n\n\n\n\nSeptember 2024 GtCoP presentation"
+    "text": "SpatioTemporal Asset Catalog\n\n\n\nSTAC spec\nSTAC API spec\ncommunity-driven\n\n\n\n\n\n\n\nvia GIPHY\n\n\n\n\n\n\nSeptember 2024 GtCoP presentation"
   },
   {
     "objectID": "index.html#vision",
@@ -25,7 +25,21 @@
     "href": "index.html#how-is-it-going",
     "title": "STAC at Scale",
     "section": "How is it going?",
-    "text": "How is it going?\n\n\n\nProviders: producing STAC metadata and hosting STAC APIs\nDevelopers: building awesome applications\nConsumers: pushing the limits of APIs and STAC spec\nCommunity: updating the STAC spec to meet needs of providers, consumers, and developers"
+    "text": "How is it going?\n\n\n\nProviders: producing STAC metadata and hosting STAC APIs\nDevelopers: building awesome applications\nConsumers: pushing the limits of APIs and STAC spec\nCommunity: updating the STAC spec to meet needs of providers, consumers, and developers\n\n\n\n\n\n\n\n\nwin-win-win"
+  },
+  {
+    "objectID": "index.html#benefits-for-data-providers",
+    "href": "index.html#benefits-for-data-providers",
+    "title": "STAC at Scale",
+    "section": "Benefits for Data Providers",
+    "text": "Benefits for Data Providers\n\n\n\nStandardized metadata\n\nno need to invent custom schemas\nleverage existing validation tools\nextensions for specialized needs\n\nFlexible implementation\n\nmultiple database backends\n\n\n\n\n\nMany providers start with static STAC and graduate to API when needed\nExtensions allow customization while maintaining interoperability\nValidation tools ensure compliance and quality"
+  },
+  {
+    "objectID": "index.html#reduced-development-overhead",
+    "href": "index.html#reduced-development-overhead",
+    "title": "STAC at Scale",
+    "section": "Reduced development overhead",
+    "text": "Reduced development overhead\n\n\n\nCommunity-backed tools\n\nMetadata generation (stactools)\nAPI implementations (stac-fastapi)\nValidation (stac-validator)\n\n\n\n\nCommunity benefits\n\nShared development costs\nBattle-tested implementations\nActive ecosystem growth\n\n\n\n\n\nInstead of building custom tools, providers can use existing ones\nCommunity collaboration reduces individual development costs\nTools are continuously improved by real-world usage\nData becomes immediately usable in popular tools\nEasier to integrate with cloud platforms\nReduces friction for users to access and work with data"
   },
   {
     "objectID": "index.html#stac-browser",
@@ -74,14 +88,14 @@
     "href": "index.html#pgstac-origin-story",
     "title": "STAC at Scale",
     "section": "pgstac origin story",
-    "text": "pgstac origin story\n\n\nHow can we optimize for lightning fast queries?\n\n\npgstac was born"
+    "text": "pgstac origin story\n\n\nHow can we optimize for lightning fast queries?\n\n\npgstac was born \n\n\n\n\nneeded a new database backend for STAC operations\nit needed to be really fast to support API requests and dynamic visualizations"
   },
   {
     "objectID": "index.html#pgstac",
     "href": "index.html#pgstac",
     "title": "STAC at Scale",
     "section": "pgstac",
-    "text": "pgstac\n\nPostgreSQL schema and functions for Spatio-Temporal Asset Catalog (STAC)\n\n\n\nstrengths\n\nPostgres!\nbuilt to handle hundreds of millions of items\noptimized for “needle in haystack” queries\nhashed searches\n\n\nweaknesses\n\nneed to host a Postgres database to use it\naggregation statistics can be slow to calculate\n\n\n\n\na lot of pgstac’s development was funded by work on MPC\ngoal was to put as much of the STAC ops in the database so many clients could talk to it without re-writing the core\nputting things in the postgres db gives you a lot for free\nhashed searches: many queries (e.g. for dynamic tiling) are going to yield the same set of items. pgstac has a mechanism for caching search results to enable faster retrieval of matching items"
+    "text": "pgstac\n\nPostgreSQL schema and functions for Spatio-Temporal Asset Catalog (STAC)\n\n\n\nstrengths\n\nit’s Postgres!\nbuilt to handle hundreds of millions of items\noptimized for “needle in haystack” queries\nhashed searches\n\n\nweaknesses\n\nneed to host a Postgres database to use it\naggregation statistics can be slow to calculate\n\n\n\n\na lot of pgstac’s development was funded by work on MPC\ngoal was to put as much of the STAC ops in the database so many clients could talk to it without re-writing the core\nputting things in the postgres db gives you a lot for free\nhashed searches: many queries (e.g. for dynamic tiling) are going to yield the same set of items. pgstac has a mechanism for caching search results to enable faster retrieval of matching items"
   },
   {
     "objectID": "index.html#asdi-catalog",
@@ -110,13 +124,6 @@
     "title": "STAC at Scale",
     "section": "stactools-pipelines",
     "text": "stactools-pipelines\n\n\n\ndevelopmentseed/stactools-pipelines\n\n\n\nevent-based processing\nSNS notifications for new uploads to a bucket provide a mechanism for keeping the STAC records closely synced with new data\nAs soon as a new asset lands, a pipeline to generate STAC metadata is triggered\n\n\n\nhttps://developmentseed.org/blog/2023-10-20-asdi/"
-  },
-  {
-    "objectID": "index.html#the-stac-api-advantage",
-    "href": "index.html#the-stac-api-advantage",
-    "title": "STAC at Scale",
-    "section": "the STAC API advantage",
-    "text": "the STAC API advantage\n\ndon’t need to learn file path schema for a new dataset\ncan rely on tools like pystac_client for API operations and odc_stac for file i/o"
   },
   {
     "objectID": "index.html#example-workflow",
