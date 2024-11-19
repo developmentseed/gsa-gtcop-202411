@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #cf3f02;
+  --primary-hover: #ff4f02;
+  --primary-dark: #a33302;
+  --primary-transparent: rgba(207, 63, 2, 0.2);
+  --white: #fff;
+}
+
 /* css styles */
 .reveal section.title-slide h1,
 .reveal section.title-slide h2,
@@ -42,7 +50,7 @@
 
 /* Inline code */
 .reveal code {
-  color: #cf3f02;
+  color: var(--primary-color);
 }
 
 .reveal .slide-logo {
@@ -50,64 +58,64 @@
 }
 
 .reveal a {
-  color: #cf3f02;
+  color: var(--primary-color);
 }
 .reveal a:hover {
-  color: #ff4f02;
+  color: var(--primary-hover);
 }
 
 /* More specific selectors for footer links */
 .reveal .footer a {
-  color: #cf3f02 !important;
+  color: var(--primary-color) !important;
 }
 
 .reveal .footer a:hover {
-  color: #cf3f02 !important;
+  color: var(--primary-color) !important;
 }
 
 /* Progress bar */
 .reveal .progress {
-  background: rgba(207, 63, 2, 0.2);
+  background: var(--primary-transparent);
 }
 
 .reveal .progress span {
-  background: #cf3f02;
+  background: var(--primary-color);
 }
 
 /* Lists */
 .reveal ul li::marker {
-  color: #cf3f02;
+  color: var(--primary-color);
 }
 
 /* Blockquotes */
 .reveal blockquote {
-  border-left: 4px solid #cf3f02;
+  border-left: 4px solid var(--primary-color);
   padding-left: 1em;
 }
 
 /* Text selection */
 ::selection {
-  background: #cf3f02;
-  color: #fff;
+  background: var(--primary-color);
+  color: var(--white);
 }
 
 /* Navigation controls */
 .controls button {
-  color: #cf3f02 !important;
+  color: var(--primary-color) !important;
 }
 
 .controls button:hover {
-  color: #a33302 !important; /* assuming this is your hover color */
+  color: var(--primary-dark) !important;
 }
 
 .controls .controls-arrow:before,
 .controls .controls-arrow:after {
-  background-color: #cf3f02;
+  background-color: var(--primary-color);
 }
 
 .controls .controls-arrow:hover:before,
 .controls .controls-arrow:hover:after {
-  background-color: #a33302; /* assuming this is your hover color */
+  background-color: var(--primary-dark);
 }
 
 /* Logo in top-left */

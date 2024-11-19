@@ -1,7 +1,7 @@
 ---
 title: "STAC at Scale"
-subtitle: "Designing and maintaining STAC infrastructure for large‐scale applications"
-author: "Henry Rodman"
+subtitle: "**GSA GtCoP November 2024**: Designing and maintaining STAC infrastructure for large‐scale applications"
+author: "Henry Rodman - Development Seed"
 date: "November 19, 2024"
 format:
   revealjs:
@@ -39,6 +39,11 @@ title-slide-attributes:
 :::
 ::::
 
+::: {.notes}
+- work with partners across the globe
+- many of the projects that we work on have been discussed at previous meetings (NASA MAAP) or will be at future meetings, so the projects I am presenting today are ones that may not otherwise appear at GtCoP
+:::
+
 # STAC refresher
 
 ![](https://stacspec.org/public/images-original/STAC-01.png){.r-stretch}
@@ -56,12 +61,20 @@ title-slide-attributes:
 
 ::: {.column width="40%"}
 ::: {.fragment}
-<iframe src="https://giphy.com/embed/hRsayJrDAx8WY" width="370" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/funny-food-hRsayJrDAx8WY">via GIPHY</a></p>
+::: {.r-stretch}
+<iframe 
+  src="https://giphy.com/embed/hRsayJrDAx8WY" 
+  height="300px"
+  style="border: none;"
+  allowFullScreen>
+</iframe>
+<p><a href="https://giphy.com/gifs/funny-food-hRsayJrDAx8WY">via GIPHY</a></p>
+:::
 :::
 :::
 ::::
 
-::: footer
+::: aside
 [September 2024 GtCoP presentation](https://github.com/GSA/gtcop-wiki/wiki/September-2024-STAC-presentations-by-development-community)
 :::
 
@@ -80,18 +93,71 @@ title-slide-attributes:
 ## How is it going?
 
 :::: {.columns}
-::: {.column width="70%"}
+::: {.column width="60%"}
 - Providers: producing STAC metadata and hosting STAC APIs
 - Developers: building awesome applications
 - Consumers: pushing the limits of APIs and STAC spec
 - Community: updating the STAC spec to meet needs of providers, consumers, and developers
 :::
-::: {.column width="30%"}
-![](https://icon-library.com/images/cycle-icon/cycle-icon-29.jpg)
+::: {.column width="40%"}
+::: {.r-stretch}
+![](./images/virtuous-cycle.png)
+:::
 :::
 ::::
 
-# The STAC spec advantage
+::: {.notes}
+- win-win-win
+:::
+
+# The STAC advantage: producers
+
+## Benefits for Data Providers
+
+:::: {.columns}
+::: {.column width="60%"}
+- **Standardized metadata**
+  - no need to invent custom schemas
+  - leverage existing validation tools
+  - extensions for specialized needs
+- **Flexible implementation**
+  - multiple database backends
+:::
+::::
+
+::: {.notes}
+- Many providers start with static STAC and graduate to API when needed
+- Extensions allow customization while maintaining interoperability
+- Validation tools ensure compliance and quality
+:::
+
+## Reduced development overhead
+
+:::: {.columns}
+::: {.column width="50%"}
+- **Community-backed tools**
+  - Metadata generation ([stactools](https://github.com/stac-utils/stactools))
+  - API implementations ([stac-fastapi](https://github.com/stac-utils/stac-fastapi))
+  - Validation ([stac-validator](https://github.com/stac-utils/stac-validator))
+:::
+::: {.column width="50%"}
+- **Community benefits**
+  - Shared development costs
+  - Battle-tested implementations
+  - Active ecosystem growth
+:::
+::::
+
+::: {.notes}
+- Instead of building custom tools, providers can use existing ones
+- Community collaboration reduces individual development costs
+- Tools are continuously improved by real-world usage
+- Data becomes immediately usable in popular tools
+- Easier to integrate with cloud platforms
+- Reduces friction for users to access and work with data
+:::
+
+# The STAC advantage: developers
 
 ::: {.notes}
 * a few applications that show how application developers can build to the STAC spec
@@ -161,12 +227,14 @@ Challenges include:
 - an early STAC-powered application
 - interactive Landsat imagery browser
 - spurred the development of [MosaicJSON](https://github.com/developmentseed/mosaicjson-spec)
+- inspired the next generation of database backends
 
 ::: {.notes}
 - USGS has a STAC API for serving STAC metadata for Landsat missions
 - Born out of an experiment to test mosaic visualizations from STAC metadata
 - Sending STAC API requests for every single tile request is not efficient
 - Spurred the development of MosaicJSON
+- The experience with dynamic visualizations from stac-server was instrumental in determining the next generation of tools
 :::
 
 ## Explore LandsatLook {.hide-title background-interactive=true background-iframe="https://landsatlook.usgs.gov/explore?date=2024-10-17%7C2024-11-15&sat=LANDSAT_9%7CLANDSAT_8"}
@@ -230,6 +298,11 @@ Challenges include:
 :::
 ::::
 
+::: {.notes}
+- needed a new database backend for STAC operations
+- it needed to be really fast to support API requests and dynamic visualizations 
+:::
+
 ## `pgstac`
 
 > PostgreSQL schema and functions for Spatio-Temporal Asset Catalog (STAC)
@@ -239,7 +312,7 @@ Challenges include:
 :::{.column width="50%"}
 **strengths**
 
-- Postgres!
+- it's Postgres!
 - built to handle hundreds of millions of items
 - optimized for "needle in haystack" queries
 - hashed searches
@@ -303,10 +376,8 @@ Challenges include:
 - As soon as a new asset lands, a pipeline to generate STAC metadata is triggered
 :::
 
-# Data conusumer experience
-
-## the STAC API advantage
-- don't need to learn file path schema for a new dataset
+# The STAC advantage: consumers
+- don't need to learn file path schema for a new dataset (don't need to even think about file ops)
 - can rely on tools like [`pystac_client`](https://pystac-client.readthedocs.io/en/latest/) for API operations and [`odc_stac`](https://odc-stac.readthedocs.io/en/latest/) for file i/o
 
 ## Example workflow
@@ -489,6 +560,7 @@ display(stats.drop_vars(["spatial_ref", "time"]).to_dataframe().reset_index().as
 ::: column
 - STAC is working on a very large scale already
 - evolving fast (but not too fast)
+- momemtum of STAC-based applications is real
 :::
 ::::
 
